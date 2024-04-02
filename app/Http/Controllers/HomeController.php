@@ -115,6 +115,11 @@ class HomeController extends Controller
         // Lógica para la página "Contacto"
         return view('notifications');
     }
+    public function sensors()
+    {
+        // Lógica para la página "Contacto"
+        return view('sensors');
+    }
     public function offline()
     {
         // Lógica para la página "Offline"

@@ -53,7 +53,7 @@ class RegisteredUserController extends Controller
         ]);
 
         // Disparar el evento de registro
-        event(new Registered($user));
+        //event(new Registered($user));
 
         // Autenticar al usuario recién registrado
         Auth::login($user);

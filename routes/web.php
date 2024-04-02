@@ -40,6 +40,7 @@ Route::get('/events', [HomeController::class, 'events'])->name('events');
 Route::get('/banners', [HomeController::class, 'banners'])->name('banners');
 Route::get('/trophies', [HomeController::class, 'trophies'])->name('trophies');
 Route::get('/notifications', [HomeController::class, 'notifications'])->name('notifications');
+Route::get('/sensors', [HomeController::class, 'sensors'])->name('sensors');
 
 Route::get('/offline', [HomeController::class, 'offline'])->name('offline');
 
