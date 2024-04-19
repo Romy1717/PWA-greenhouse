@@ -52,8 +52,8 @@
 
                                     <a class="small text-muted" href="{{ route('password.request') }}">¿Has
                                         olvidado tu contraseña?</a>
-                                    <p class="mb-5 pb-lg-2" style="color: #70e000;">¿No tienes una cuenta? <a
-                                            href="{{ route('register') }}" style="color: #70e000;">Registrar
+                                    <p class="mb-5 pb-lg-2" style="color: #184e77;">¿No tienes una cuenta? <a
+                                            href="{{ route('register') }}" style="color: #184e77;">Registrar
                                             aquí</a></p>
                                 </form>
 

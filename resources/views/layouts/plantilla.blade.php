@@ -71,9 +71,9 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
-                <div class="navbar-nav ml-auto py-0">
-                    <a href="{{ route('index') }}">
-                        <svg width="30" height="30" fill="currentColor" class="bi bi-house-door-fill mt-4" viewBox="0 0 16 16 ">
+                <div class="navbar-nav ml-auto ">
+                    <a href="{{ route('index') }}" class="nav-item nav-link" >
+                        <svg width="30" height="30" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16 ">
                             <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5"/>
                         </svg>
                     </a>
@@ -119,14 +119,14 @@
 
 
   <!-- Footer Start -->
-  <div class="container-fluid bg-dark text-white-50 py-5 px-sm-3 px-lg-5 " style="margin-top: 150px;">
+  <div class="container-fluid bg-dark text-white-50 py-5 px-sm-3 px-lg-5 " style="margin-top: 80px;">
       <div class="row pt-5">
           <div class="col-lg-3 col-md-6 mb-5">
               <a href="" class="navbar-brand">
                 <h1 class="m-0 text-light"><span class=" text-primary">GREEN</span>HOUSE</h1>
               </a>
               <p class="text-justify">GreenHouse es una plataforma que te ayudara a administrar de manera remota tu invernadero.</p>
-              <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;">Follow Us</h6>
+              <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;">Siguenos</h6>
               <div class="d-flex justify-content-start">
                   <a class="btn btn-outline-primary btn-square mr-2" href="#">
                     <svg  width="16" height="16" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">

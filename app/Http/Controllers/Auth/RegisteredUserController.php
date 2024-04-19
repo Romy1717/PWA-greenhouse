@@ -37,9 +37,9 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', 'min:8'],
             'birthday' => ['required', 'date'],
             'gender' => ['required', 'string', 'in:masculino,femenino,otro'],
-            'category' => ['required', 'string', 'in:usuario,admin,superadmin'],
+            'category' => ['unrequired', 'string', 'in:usuario,admin,superadmin'],
         ]);
-
+        $category = $request->input('category', 'usuario');
         // Crear el usuario en la base de datos
         $user = User::create([
             'name' => $request->name,

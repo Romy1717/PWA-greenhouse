@@ -47,5 +47,29 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
-}
+    
+    /**
+     * Obtener todos los usuarios de la base de datos y pasarlos a la vista.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function index()
+    {
+        // Obtener todos los usuarios de la base de datos
+        $users = User::all();
+        
+        // Pasar los usuarios a la vista
+        return view('users', compact('users'));
+    }
 
+    /**
+     * Setear 'usuario' como valor por defecto para el campo 'category'.
+     *
+     * @param string|null $value
+     * @return void
+     */
+    public function setCategoryAttribute(?string $value)
+    {
+        $this->attributes['category'] = $value ?? 'usuario';
+    }
+}

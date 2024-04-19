@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class HomeController extends Controller
 {public function index()
@@ -67,8 +68,9 @@ class HomeController extends Controller
     }
     public function users()
     {
-        // Lógica para la página "Contacto"
-        return view('users');
+        $usuarios=User::all();
+
+        return view('users', compact('usuarios'));
     }
     public function insignia()
     {

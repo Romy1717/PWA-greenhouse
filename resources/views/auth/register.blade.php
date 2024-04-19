@@ -3,13 +3,13 @@
 @section('title', 'Home')
 
 @section('content')
-<section class="vh-100 bg-image mt-5 mb-4 ">
+<section class="vh-100 bg-image mb-5 ">
     <div class="mask d-flex align-items-center h-100 gradient-custom-3">
-        <div class="container h-100 mb-4">
+        <div class="container h-100 mb-5">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-12 col-md-9 col-lg-7 col-xl-6">
                     <div class="card" style="border-radius: 15px;">
-                        <div class="card-body p-5">
+                        <div class="card-body">
 
                             <h5 class="text-uppercase text-center">Crea una cuenta</h5>
 
@@ -61,14 +61,7 @@
                                         <option value="otro">Otro</option>
                                     </select>
                                 </div>
-                                <div class="form-outline mb-2">
-                                    <label class="form-label" for="category">Usuario</label>
-                                    <select id="category" name="category" class="form-control" required>
-                                        <option value="" disabled selected>Selecciona tu tipo de Usuario</option>
-                                        <option value="usuario">Comprador</option>
-                                        <option value="admin">Administrador</option>              
-                                    </select>
-                                </div>
+                               
                                 
                                 <div class="d-flex justify-content-center">
                                     <button type="submit" class="btn btn-success btn-block btn-lg gradient-custom-4 ligth-text">Registrar</button>
@@ -76,7 +69,7 @@
                                 <div class="container">
                                     <div class="row justify-content-center">
                                         <div class="col-md-12 text-center">
-                                            <p class="text-muted" style="color: #70e000;">¿Ya tienes una cuenta? <a href="{{ route('login') }}" style="color: #70e000;">Inicia sesión aquí</a></p>
+                                            <p class="text-muted" style="color: #184e77;">¿Ya tienes una cuenta? <a href="{{ route('login') }}" style="color: #1e6091;">Inicia sesión aquí</a></p>
                                         </div>
                                     </div>
                                 </div>
@@ -89,6 +82,5 @@
     </div>
     
 </section>
-
 
 @endsection
