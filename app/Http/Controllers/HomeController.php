@@ -11,7 +11,7 @@ class HomeController extends Controller
         // Verificar si el usuario está autenticado
         if (auth()->check()) {
             // Si el usuario está autenticado, redirigir al dashboard
-            return redirect()->route('dashboard');
+            return redirect()->route('profile');
         }
     
         // Si el usuario no está autenticado, mostrar la vista del índice
@@ -121,6 +121,16 @@ class HomeController extends Controller
     {
         // Lógica para la página "Contacto"
         return view('sensors');
+    }
+    public function profile()
+    {
+        // Lógica para la página "Contacto"
+        return view('profile');
+    }
+    public function greenhouse()
+    {
+        // Lógica para la página "Contacto"
+        return view('greenhouse');
     }
     public function offline()
     {

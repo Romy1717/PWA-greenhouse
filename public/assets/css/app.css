@@ -6697,29 +6697,34 @@ a {
 .progress-label .progress-bar {
   position: relative;
   overflow: visible;
+  animation: increaseWidth 1s ease-in-out forwards;
 }
 .progress-label .progress-bar .label {
   position: absolute;
   top: -25px;
-  left: -9px;
+  left: 50%;
+  transform: translateX(-50%);
   background-color: #405189;
   color: #fff;
   display: inline-block;
   line-height: 18px;
   padding: 0 4px;
   border-radius: 4px;
+  opacity: 0; /* Hacemos la etiqueta invisible al principio */
+  animation: fadeIn 1s ease-in-out forwards; /
 }
-.progress-label .progress-bar .label:after {
-  content: "";
-  position: absolute;
-  border: 4px solid transparent;
-  border-top-color: #405189;
-  bottom: -7px;
-  right: 50%;
-  -webkit-transform: translateX(50%);
-          transform: translateX(50%);
+.progress-label .progress-bar.filled .label {
+  left: calc(100% - 12px); /* Ajustamos la posición de la etiqueta de porcentaje */
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 .progress-step-arrow {
   height: 3.25rem;
 }

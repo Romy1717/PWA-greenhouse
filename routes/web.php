@@ -6,20 +6,7 @@ use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\DashboardController;
-
-
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
+use App\Http\Controllers\UserController;
 
 Route::middleware(['auth'])->group(function() {
     Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
@@ -42,8 +29,11 @@ Route::get('/medals', [HomeController::class, 'medals'])->name('medals');
 Route::get('/events', [HomeController::class, 'events'])->name('events');
 Route::get('/banners', [HomeController::class, 'banners'])->name('banners');
 Route::get('/trophies', [HomeController::class, 'trophies'])->name('trophies');
+Route::get('/profile', [HomeController::class, 'profile'])->name('profile');
 Route::get('/notifications', [HomeController::class, 'notifications'])->name('notifications');
 Route::get('/sensors', [HomeController::class, 'sensors'])->name('sensors');
+Route::get('/profile', [UserController::class, 'profile'])->name('profile');
+Route::get('/greenhouse', [HomeController::class, 'greenhouse'])->name('greenhouse');
 
 Route::get('/offline', [HomeController::class, 'offline'])->name('offline');
 
