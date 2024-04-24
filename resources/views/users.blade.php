@@ -38,50 +38,54 @@
                                             <input class="form-check-input" type="checkbox" id="checkAll" value="option">
                                         </div>
                                     </th>
-                                    <th class="sort" data-sort="name" >Nombre</th>
-                                    <th class="sort" data-sort="lastname_1" >Apellido Paterno</th>
-                                    <th class="sort" data-sort="lastname_2" >Apellido Materno</th>
+                                    <th class="sort" data-sort="name">Nombre</th>
+                                    <th class="sort" data-sort="lastname_1">Apellido Paterno</th>
+                                    <th class="sort" data-sort="lastname_2">Apellido Materno</th>
                                     <th class="sort" data-sort="email">Correo</th>
                                     <th class="sort" data-sort="category">Categoría</th>
                                     <th class="sort" data-sort="date">Fecha de registro</th>
-                                    
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ( $usuarios as $us )
-                                    <td><div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="checkAll" value="option">
-                                    </div></td>
-                                    <td class="name">{{$us -> name }}</td>
-                                    <td class="lastname_1">{{$us -> lastname_1 }}</td>
-                                    <td class="lastname_2">{{$us -> lastname_2 }}</td>
-                                    <td class="email">{{$us -> email}}</td>
-                                    <td class="category">{{$us -> category}}</td>
-                                    <td class="date">{{$us -> created_at}}</td>
-                                    <!--<td><div class="d-flex gap-2">
-                                        <div class="edit">
-                                            <button class="btn btn-sm btn-success edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Editar</button>
+                                @foreach ($usuarios as $us)
+                                <tr>
+                                    <td>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="checkAll" value="option">
                                         </div>
-                                        <div class="remove">
-                                            <button class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal" data-bs-target="#deleteRecordModal">Eliminar</button>
+                                    </td>
+                                    <td class="name">{{ $us->name }}</td>
+                                    <td class="lastname_1">{{ $us->lastname_1 }}</td>
+                                    <td class="lastname_2">{{ $us->lastname_2 }}</td>
+                                    <td class="email">{{ $us->email }}</td>
+                                    <td class="category">{{ $us->category }}</td>
+                                    <td class="date">{{ $us->created_at }}</td>
+                                    <!--<td>
+                                        <div class="d-flex gap-2">
+                                            <div class="edit">
+                                                <button class="btn btn-sm btn-success edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Editar</button>
+                                            </div>
+                                            <div class="remove">
+                                                <button class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal" data-bs-target="#deleteRecordModal">Eliminar</button>
+                                            </div>
+                                            <div class="info">
+                                                <button class="btn btn-sm btn-info waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#ShowModal">Info.</button>
+                                            </div>
                                         </div>
-                                        <div class="info">
-                                            <button class="btn btn-sm btn-info waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#ShowModal">Info.</button>
-                                        </div>
-                                    </div></td> 
-                                -->
+                                    </td>-->
+                                </tr>
                                 @endforeach
-                            </tbody>   
-                            
+                            </tbody>
                         </table>
                         <div class="noresult" style="display: none">
                             <div class="text-center">
                                 <lord-icon src="https://cdn.lordicon.com/msoeawqm.json" trigger="loop" colors="primary:#121331,secondary:#08a88a" style="width:75px;height:75px"></lord-icon>
-                                <h5 class="mt-2">Sorry! No Result Found</h5>
-                                <p class="text-muted mb-0">We've searched more than 150+ Orders We did not find any orders for you search.</p>
+                                <h5 class="mt-2">¡Lo siento! No se encontraron resultados</h5>
+                                <p class="text-muted mb-0">Hemos buscado más de 150+ pedidos. No encontramos ningún pedido para tu búsqueda.</p>
                             </div>
                         </div>
                     </div>
+                    
 
                     <div class="d-flex justify-content-end">
                         <div class="pagination-wrap hstack gap-2">

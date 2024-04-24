@@ -1,12 +1,24 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\View;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        // Verifica si hay un usuario autenticado antes de compartir la variable
+        if (Auth::check()) {
+            // Comparte la variable $user con todas las vistas
+            View::share('user', Auth::user());
+        } else {
+            // Si no hay usuario autenticado, comparte null
+            View::share('user', null);
+        }
+    }
+
     public function profile()
     {
         // Obtenemos el usuario autenticado
@@ -22,7 +34,6 @@ class UserController extends Controller
         return view('profile', ['user' => $user, 'lastname' => $lastname, 'porcentajeCompletado' => $porcentajeCompletado]);
     }
 
-    
     private function calcularPorcentajeCompletado($user)
     {
         $camposRequeridos = [
@@ -33,19 +44,28 @@ class UserController extends Controller
             'password', 
             'birthday', 
             'gender', 
-            'category'
+            'category',
+            'email_verified_at',
+            'created_at',
+            'updated_at'
         ];
-
+    
         $camposCompletados = 0;
-
+    
         foreach ($camposRequeridos as $campo) {
-            if (!empty($user->$campo)) {
+            // Verifica si el campo no está vacío y no es null
+            if (!empty($user->$campo) || $user->$campo !== null) {
                 $camposCompletados++;
             }
         }
-
+    
+        // Calcula el porcentaje de campos completados
         $porcentaje = ($camposCompletados / count($camposRequeridos)) * 100;
-
-        return $porcentaje;
+    
+        // Tomar los dos primeros caracteres antes del punto
+        $porcentajeFormateado = substr($porcentaje, 0, 2);
+    
+        return $porcentajeFormateado;
     }
 }
+

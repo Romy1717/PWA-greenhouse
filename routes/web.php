@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserController;
-
 Route::middleware(['auth'])->group(function() {
     Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
 });
@@ -36,6 +35,8 @@ Route::get('/profile', [UserController::class, 'profile'])->name('profile');
 Route::get('/greenhouse', [HomeController::class, 'greenhouse'])->name('greenhouse');
 
 Route::get('/offline', [HomeController::class, 'offline'])->name('offline');
+
+
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
