@@ -19,10 +19,10 @@ class HomeController extends Controller
     }
     
 
-    public function dashboard()
+    public function business()
     {
         // Lógica para la página del manager
-        return view('dashboard');
+        return view('business');
     }
 
     public function about()
@@ -72,11 +72,7 @@ class HomeController extends Controller
 
         return view('users', compact('usuarios'));
     }
-    public function insignia()
-    {
-        // Lógica para la página "Contacto"
-        return view('insignia');
-    }
+
     public function dealers()
     {
         // Lógica para la página "Contacto"
@@ -92,26 +88,23 @@ class HomeController extends Controller
         // Lógica para la página "Contacto"
         return view('certificates');
     }
-    public function medals()
+
+    public function creategreenhouse()
     {
         // Lógica para la página "Contacto"
-        return view('medals');
+        return view('creategreenhouse');
+    }
+    public function listgreenhouse()
+    {
+        // Lógica para la página "Contacto"
+        return view('listgreenhouse');
     }
     public function events()
     {
         // Lógica para la página "Contacto"
         return view('events');
     }
-    public function banners()
-    {
-        // Lógica para la página "Contacto"
-        return view('banners');
-    }
-    public function trophies()
-    {
-        // Lógica para la página "Contacto"
-        return view('trophies');
-    }
+
     public function notifications()
     {
         // Lógica para la página "Contacto"

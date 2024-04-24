@@ -96,10 +96,10 @@
                     <div class="collapse menu-dropdown" id="sidebarGreenhouse">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="" class="nav-link" data-key="t-analytics">Crear Invernadero</a>
+                                <a href="{{ route('creategreenhouse') }}"  class="nav-link" data-key="t-analytics">Crear Invernadero</a>
                             </li>
                             <li class="nav-item">
-                                <a href="" class="nav-link" data-key="t-crm">Mis invernaderos </a>
+                                <a href="{{ route('listgreenhouse') }}" class="nav-link" data-key="t-crm">Mis invernaderos </a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{ route('greenhouse') }}" class="nav-link" data-key="t-ecommerce"> Panel de administración </a>
@@ -115,17 +115,30 @@
                     <div class="collapse menu-dropdown" id="sidebarBusiness">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="{{ route('dashboard') }}" class="nav-link" data-key="t-analytics"> Listado de Negocios </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('categories') }}" class="nav-link" data-key="t-crm"> Categorias </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('subcategories') }}" class="nav-link" data-key="t-ecommerce"> Subcategorias </a>
-                            </li>                            
+                                <a href="{{ route('business') }}" class="nav-link" data-key="t-analytics"> Listado de Negocios </a>
+                            </li>                         
                         </ul>
                     </div>
                 </li> <!-- end Business Menu -->
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="#sidebarCategories" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarCategories">
+                        <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Categorías</span>
+                    </a>
+                    <div class="collapse menu-dropdown" id="sidebarCategories">
+                        <ul class="nav nav-sm flex-column">
+                
+                            <li class="nav-item">
+                                <a href="{{ route('categories') }}" class="nav-link" data-key="t-crm"> Lista de categorías </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('subcategories') }}" class="nav-link" data-key="t-ecommerce">Crear subcategoría</a>
+                            </li>   
+                            <li class="nav-item">
+                                <a href="{{ route('subcategories') }}" class="nav-link" data-key="t-ecommerce">Lista de subcategorías</a>
+                            </li>                         
+                        </ul>
+                    </div>
+                </li> <!-- end Category Menu -->
                 
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="{{ route('transactions') }}">
@@ -175,23 +188,6 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="{{ route('insignia') }}">
-                        <svg  width="20" height="20" fill="currentColor" class="bi bi-award" viewBox="0 0 16 16">
-                            <path d="M9.669.864 8 0 6.331.864l-1.858.282-.842 1.68-1.337 1.32L2.6 6l-.306 1.854 1.337 1.32.842 1.68 1.858.282L8 12l1.669-.864 1.858-.282.842-1.68 1.337-1.32L13.4 6l.306-1.854-1.337-1.32-.842-1.68zm1.196 1.193.684 1.365 1.086 1.072L12.387 6l.248 1.506-1.086 1.072-.684 1.365-1.51.229L8 10.874l-1.355-.702-1.51-.229-.684-1.365-1.086-1.072L3.614 6l-.25-1.506 1.087-1.072.684-1.365 1.51-.229L8 1.126l1.356.702z"/>
-                            <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1z"/>
-                          </svg></i> <span data-key="t-base-ui">Insignias</span>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link menu-link" href="{{ route('medals') }}">
-                        <svg  width="20" height="20" fill="currentColor" class="bi bi-award-fill" viewBox="0 0 16 16">
-                            <path d="m8 0 1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864z"/>
-                            <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1z"/>
-                          </svg><span data-key="t-advance-ui">Medallas</span>
-                    </a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link menu-link" href="{{ route('sensors') }}">
                         <svg width="20" height="20" fill="currentColor" class="bi bi-rss" viewBox="0 0 16 16">
                             <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
@@ -199,15 +195,6 @@
                           </svg><span data-key="t-advance-ui">Sensores</span>
                     </a>
                 </li>
-
-                <li class="nav-item">
-                    <a class="nav-link menu-link" href="{{ route('trophies') }}">
-                        <svg  width="20" height="20" fill="currentColor" class="bi bi-trophy" viewBox="0 0 16 16">
-                            <path d="M2.5.5A.5.5 0 0 1 3 0h10a.5.5 0 0 1 .5.5q0 .807-.034 1.536a3 3 0 1 1-1.133 5.89c-.79 1.865-1.878 2.777-2.833 3.011v2.173l1.425.356c.194.048.377.135.537.255L13.3 15.1a.5.5 0 0 1-.3.9H3a.5.5 0 0 1-.3-.9l1.838-1.379c.16-.12.343-.207.537-.255L6.5 13.11v-2.173c-.955-.234-2.043-1.146-2.833-3.012a3 3 0 1 1-1.132-5.89A33 33 0 0 1 2.5.5m.099 2.54a2 2 0 0 0 .72 3.935c-.333-1.05-.588-2.346-.72-3.935m10.083 3.935a2 2 0 0 0 .72-3.935c-.133 1.59-.388 2.885-.72 3.935M3.504 1q.01.775.056 1.469c.13 2.028.457 3.546.87 4.667C5.294 9.48 6.484 10 7 10a.5.5 0 0 1 .5.5v2.61a1 1 0 0 1-.757.97l-1.426.356a.5.5 0 0 0-.179.085L4.5 15h7l-.638-.479a.5.5 0 0 0-.18-.085l-1.425-.356a1 1 0 0 1-.757-.97V10.5A.5.5 0 0 1 9 10c.516 0 1.706-.52 2.57-2.864.413-1.12.74-2.64.87-4.667q.045-.694.056-1.469z"/>
-                          </svg> <span data-key="t-widgets">Trofeos</span>
-                    </a>
-                </li>
-
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="{{ route('notifications') }}">
                         <svg  width="20" height="20" fill="currentColor" class="bi bi-bell" viewBox="0 0 16 16">
@@ -215,15 +202,6 @@
                           </svg></i> <span data-key="t-forms">Notificaciones</span>
                     </a>
                 </li>
-
-                <li class="nav-item">
-                    <a class="nav-link menu-link" href="{{ route('banners') }}">
-                        <svg  width="20" height="20" fill="currentColor" class="bi bi-flag" viewBox="0 0 16 16">
-                            <path d="M14.778.085A.5.5 0 0 1 15 .5V8a.5.5 0 0 1-.314.464L14.5 8l.186.464-.003.001-.006.003-.023.009a12 12 0 0 1-.397.15c-.264.095-.631.223-1.047.35-.816.252-1.879.523-2.71.523-.847 0-1.548-.28-2.158-.525l-.028-.01C7.68 8.71 7.14 8.5 6.5 8.5c-.7 0-1.638.23-2.437.477A20 20 0 0 0 3 9.342V15.5a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 1 0v.282c.226-.079.496-.17.79-.26C4.606.272 5.67 0 6.5 0c.84 0 1.524.277 2.121.519l.043.018C9.286.788 9.828 1 10.5 1c.7 0 1.638-.23 2.437-.477a20 20 0 0 0 1.349-.476l.019-.007.004-.002h.001M14 1.221c-.22.078-.48.167-.766.255-.81.252-1.872.523-2.734.523-.886 0-1.592-.286-2.203-.534l-.008-.003C7.662 1.21 7.139 1 6.5 1c-.669 0-1.606.229-2.415.478A21 21 0 0 0 3 1.845v6.433c.22-.078.48-.167.766-.255C4.576 7.77 5.638 7.5 6.5 7.5c.847 0 1.548.28 2.158.525l.028.01C9.32 8.29 9.86 8.5 10.5 8.5c.668 0 1.606-.229 2.415-.478A21 21 0 0 0 14 7.655V1.222z"/>
-                          </svg></i> <span data-key="t-tables">Banners</span>
-                    </a>
-                </li>
-
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="{{ route('events') }}">
                         <svg width="20" height="20" fill="currentColor" class="bi bi-calendar-week" viewBox="0 0 16 16">
@@ -288,11 +266,11 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-6">
-                    <script>document.write(new Date().getFullYear())</script> © Velzon.
+                    <script>document.write(new Date().getFullYear())</script> © oftTIM
                 </div>
                 <div class="col-sm-6">
                     <div class="text-sm-end d-none d-sm-block">
-                        Design & Develop by Themesbrand
+                        Designed by SoftTIM
                     </div>
                 </div>
             </div>

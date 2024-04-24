@@ -1,6 +1,6 @@
 @extends('layouts.dashboard-Layout')
 
-@section( 'title' , 'Medallas')
+@section( 'title' , 'Crear invernadero')
 
  @section('content')
  
