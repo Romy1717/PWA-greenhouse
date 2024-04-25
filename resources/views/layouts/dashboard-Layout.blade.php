@@ -128,13 +128,10 @@
                         <ul class="nav nav-sm flex-column">
                 
                             <li class="nav-item">
-                                <a href="{{ route('categories') }}" class="nav-link" data-key="t-crm"> Lista de categorías </a>
-                            </li>
+                                <a href="{{ route('categories.index') }}" class="nav-link" data-key="t-crm"> Lista de categorías </a>
+                            </li>  
                             <li class="nav-item">
-                                <a href="{{ route('subcategories') }}" class="nav-link" data-key="t-ecommerce">Crear subcategoría</a>
-                            </li>   
-                            <li class="nav-item">
-                                <a href="{{ route('subcategories') }}" class="nav-link" data-key="t-ecommerce">Lista de subcategorías</a>
+                                <a href="{{ route('subcategories.index') }}" class="nav-link" data-key="t-ecommerce">Lista de subcategorías</a>
                             </li>                         
                         </ul>
                     </div>

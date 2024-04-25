@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RegisterController;
@@ -8,20 +7,27 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\SubcategoriesController;
+
 Route::middleware(['auth'])->group(function() {
     Route::get('/business', [HomeController::class, 'business'])->name('business');
 });
+
 Route::post('/categories', [CategoriesController::class, 'store'])->name('categories.store');
-Route::get('/categories', [CategoriesController::class, 'categories'])->name('categories');
+Route::get('/categories', [CategoriesController::class, 'index'])->name('categories.index');
 Route::delete('/categories/{categories}', [CategoriesController::class, 'destroy'])->name('categories.destroy');
 Route::put('/categories/{id}', [CategoriesController::class, 'update'])->name('categories.update');
 
+
+Route::get('/subcategories', [SubcategoriesController::class, 'index'])->name('subcategories.index');
+Route::post('/subcategories', [SubcategoriesController::class, 'store'])->name('subcategories.store');
+Route::put('/subcategories/{id}', [SubcategoriesController::class, 'update'])->name('subcategories.update'); // Agrega esta línea
+Route::delete('/subcategories/{id}', [SubcategoriesController::class, 'destroy'])->name('subcategories.destroy');
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::get('/services', [HomeController::class, 'services'])->name('services');
-Route::get('/subcategories', [HomeController::class, 'subcategories'])->name('subcategories');
 Route::get('/transactions', [HomeController::class, 'transactions'])->name('transactions');
 Route::get('/orders', [HomeController::class, 'orders'])->name('orders');
 Route::get('/users', [HomeController::class, 'users'])->name('users');
@@ -39,9 +45,6 @@ Route::get('/greenhouse', [HomeController::class, 'greenhouse'])->name('greenhou
 
 Route::get('/offline', [HomeController::class, 'offline'])->name('offline');
 
-
-
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 require __DIR__.'/auth.php';

@@ -1,12 +1,12 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
 
 class HomeController extends Controller
-{public function index()
+{
+    public function index()
     {
         // Verificar si el usuario está autenticado
         if (auth()->check()) {
@@ -17,7 +17,6 @@ class HomeController extends Controller
         // Si el usuario no está autenticado, mostrar la vista del índice
         return view('index');
     }
-    
 
     public function business()
     {
@@ -36,95 +35,100 @@ class HomeController extends Controller
         // Lógica para la página "Contacto"
         return view('contact');
     }
+    
     public function services()
     {
-        // Lógica para la página "Contacto"
+        // Lógica para la página "Servicios"
         return view('services');
     }
+    
     public function login()
     {
-        // Lógica para la página "Contacto"
+        // Lógica para la página "Iniciar sesión"
         return view('login');
     }
   
-    public function subcategories()
-    {
-        // Lógica para la página "Contacto"
-        return view('subcategories');
-    }
     public function transactions()
     {
-        // Lógica para la página "Contacto"
+        // Lógica para la página "Transacciones"
         return view('transactions');
     }
+    
     public function orders()
     {
-        // Lógica para la página "Contacto"
+        // Lógica para la página "Pedidos"
         return view('orders');
     }
+    
     public function users()
     {
-        $usuarios=User::all();
-
+        $usuarios = User::all();
         return view('users', compact('usuarios'));
     }
-
+    
     public function dealers()
     {
-        // Lógica para la página "Contacto"
+        // Lógica para la página "Distribuidores"
         return view('dealers');
     }
+    
     public function mapdealers()
     {
-        // Lógica para la página "Contacto"
+        // Lógica para la página "Mapa de distribuidores"
         return view('mapdealers');
     }
+    
     public function certificates()
     {
-        // Lógica para la página "Contacto"
+        // Lógica para la página "Certificados"
         return view('certificates');
     }
 
     public function creategreenhouse()
     {
-        // Lógica para la página "Contacto"
+        // Lógica para la página "Crear invernadero"
         return view('creategreenhouse');
     }
+    
     public function listgreenhouse()
     {
-        // Lógica para la página "Contacto"
+        // Lógica para la página "Listar invernaderos"
         return view('listgreenhouse');
     }
+    
     public function events()
     {
-        // Lógica para la página "Contacto"
+        // Lógica para la página "Eventos"
         return view('events');
     }
 
     public function notifications()
     {
-        // Lógica para la página "Contacto"
+        // Lógica para la página "Notificaciones"
         return view('notifications');
     }
+    
     public function sensors()
     {
-        // Lógica para la página "Contacto"
+        // Lógica para la página "Sensores"
         return view('sensors');
     }
+    
     public function profile()
     {
-        // Lógica para la página "Contacto"
+        // Lógica para la página "Perfil"
         return view('profile');
     }
+    
     public function greenhouse()
     {
-        // Lógica para la página "Contacto"
+        // Lógica para la página "Invernadero"
         return view('greenhouse');
     }
+    
     public function offline()
     {
         // Lógica para la página "Offline"
         return view('vendor.laravelpwa.offline');
     }
-   
 }

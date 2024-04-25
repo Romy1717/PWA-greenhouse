@@ -17,7 +17,6 @@
                         <div class="col-sm-auto">
                             <div>
                                 <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal" id="create-btn" data-bs-target="#showModal"><i class="ri-add-line align-bottom me-1"></i> Agregar</button>
-
                             </div>
                         </div>
                     </div>
@@ -26,23 +25,19 @@
                         <table class="table align-middle table-nowrap" id="customerTable">
                             <thead class="table-light">
                                 <tr>
-                                    <th scope="col" style="width: 50px;">
-
-                                    </th>
-                                    <th class="sort" data-sort="customer_name">Id</th>
-                                    <th class="sort" data-sort="email">Nombre</th>
-                                    <th class="sort" data-sort="phone">Descripción</th>
-                                    <th class="sort" data-sort="date">Fecha de creación</th>
-                                    <th class="sort" data-sort="status">Fecha de modificación</th>
+                                    <th scope="col" style="width: 50px;"></th>
+                                    <th class="sort" data-sort="id">Id</th>
+                                    <th class="sort" data-sort="name">Nombre</th>
+                                    <th class="sort" data-sort="description">Descripción</th>
+                                    <th class="sort" data-sort="datecreate">Fecha de creación</th>
+                                    <th class="sort" data-sort="dame modifi">Fecha de modificación</th>
                                     <th class="sort" data-sort="action">Acción</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($categories as $category)
                                 <tr>
-                                    <td>
-                                      
-                                    </td>
+                                    <td></td>
                                     <td>{{ $category->id }}</td>
                                     <td>{{ $category->name }}</td>
                                     <td>{{ $category->description }}</td>
@@ -54,33 +49,27 @@
                                                 <button class="btn btn-sm btn-success edit-item-btn" data-bs-toggle="modal" data-bs-target="#editModal{{ $category->id }}">Editar</button>
                                             </div>
                                             <div class="remove">
-                                                <button class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal" data-bs-target="#deleteRecordModal" data-category-id="{{ $category->id }}">Eliminar</button>
+                                                <button class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal" data-bs-target="#deleteRecordModal{{ $category->id }}">Eliminar</button>
                                             </div>
                                         </div>
                                     </td>
                                 </tr>
                                 @endforeach
-                                
                             </tbody>
                         </table>
                         <div class="noresult" style="display: none">
                             <div class="text-center">
                                 <lord-icon src="https://cdn.lordicon.com/msoeawqm.json" trigger="loop" colors="primary:#121331,secondary:#08a88a" style="width:75px;height:75px"></lord-icon>
                                 <h5 class="mt-2">¡Lo siento! No se encontraron resultados</h5>
-                                <p class="text-muted mb-0">Hemos buscado más de 150+ pedidos pero no encontramos ninguno para tu búsqueda.</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="d-flex justify-content-end">
                         <div class="pagination-wrap hstack gap-2">
-                            <a class="page-item pagination-prev disabled" href="javascript:void(0);">
-                                Anterior
-                            </a>
+                            <a class="page-item pagination-prev disabled" href="javascript:void(0);">Anterior</a>
                             <ul class="pagination listjs-pagination mb-0"></ul>
-                            <a class="page-item pagination-next" href="javascript:void(0);">
-                                Siguiente
-                            </a>
+                            <a class="page-item pagination-next" href="javascript:void(0);">Siguiente</a>
                         </div>
                     </div>
                 </div>
@@ -91,8 +80,7 @@
     <!-- end col -->
 </div>
 
-<!-- end row -->
-
+<!-- Agregar Modal -->
 <div class="modal fade" id="showModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -134,7 +122,8 @@
         </div>
     </div>
 </div>
-<!-- Modificar Modal-->
+
+<!-- Modificar y Eliminar Modal-->
 @foreach($categories as $category)
 <div class="modal fade" id="editModal{{ $category->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -169,13 +158,9 @@
         </div>
     </div>
 </div>
-@endforeach
 
-
-
-
-<!-- Modal -->
-<div class="modal fade zoomIn" id="deleteRecordModal" tabindex="-1" aria-hidden="true">
+<!-- Eliminar Modal -->
+<div class="modal fade zoomIn" id="deleteRecordModal{{ $category->id }}" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -201,7 +186,7 @@
         </div>
     </div>
 </div>
-
+@endforeach
 <!--end modal -->
 
 <!--end row-->
