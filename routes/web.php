@@ -13,7 +13,8 @@ Route::middleware(['auth'])->group(function() {
 });
 Route::post('/categories', [CategoriesController::class, 'store'])->name('categories.store');
 Route::get('/categories', [CategoriesController::class, 'categories'])->name('categories');
-
+Route::delete('/categories/{categories}', [CategoriesController::class, 'destroy'])->name('categories.destroy');
+Route::put('/categories/{id}', [CategoriesController::class, 'update'])->name('categories.update');
 
 
 Route::get('/', [HomeController::class, 'index'])->name('index');

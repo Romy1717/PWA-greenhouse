@@ -29,7 +29,37 @@ class CategoriesController extends Controller
         // Este método muestra el formulario para crear una nueva categoría
         return view('categories.create');
     }
-
+    public function destroy($id)
+    {
+        // Encuentra la categoría por su ID
+        $category = Categories::findOrFail($id);
+        
+        // Elimina la categoría
+        $category->delete();
+        
+        // Redirige a la página de categorías con un mensaje de éxito
+        return redirect()->route('categories')->with('status', 'Categoría eliminada correctamente');
+    }
+    public function update(Request $request, $id)
+    {
+        // Encuentra la categoría por su ID
+        $category = Categories::findOrFail($id);
+        
+        // Validación de los datos del formulario
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'nullable|string|max:255',
+        ]);
+    
+        // Actualiza los campos de la categoría
+        $category->update([
+            'name' => $request->name,
+            'description' => $request->description,
+        ]);
+    
+        // Redirige a la página de categorías con un mensaje de éxito
+        return redirect()->route('categories')->with('status', 'Categoría modificada correctamente');
+    }
     public function store(Request $request)
     {
         // Validación de los datos del formulario

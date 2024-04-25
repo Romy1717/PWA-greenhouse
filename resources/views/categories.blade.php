@@ -1,10 +1,10 @@
 @extends('layouts.dashboard-Layout')
 
-@section( 'title' , 'Categorias')
+@section('title', 'Categorias')
 
- @section('content')
- 
- <div class="row">
+@section('content')
+
+<div class="row">
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header">
@@ -17,7 +17,7 @@
                         <div class="col-sm-auto">
                             <div>
                                 <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal" id="create-btn" data-bs-target="#showModal"><i class="ri-add-line align-bottom me-1"></i> Agregar</button>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -27,49 +27,47 @@
                             <thead class="table-light">
                                 <tr>
                                     <th scope="col" style="width: 50px;">
-                                   
+
                                     </th>
                                     <th class="sort" data-sort="customer_name">Id</th>
                                     <th class="sort" data-sort="email">Nombre</th>
                                     <th class="sort" data-sort="phone">Descripción</th>
                                     <th class="sort" data-sort="date">Fecha de creación</th>
                                     <th class="sort" data-sort="status">Fecha de modificación</th>
-                                    <th class="sort" data-sort="action">Acción</th>                               
+                                    <th class="sort" data-sort="action">Acción</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($categories as $category)
-                                    <tr>
-                                        <td>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="{{ $category->id }}" id="checkbox{{ $category->id }}">
+                                <tr>
+                                    <td>
+                                      
+                                    </td>
+                                    <td>{{ $category->id }}</td>
+                                    <td>{{ $category->name }}</td>
+                                    <td>{{ $category->description }}</td>
+                                    <td>{{ $category->created_at }}</td>
+                                    <td>{{ $category->updated_at }}</td>
+                                    <td>
+                                        <div class="d-flex gap-2">
+                                            <div class="edit">
+                                                <button class="btn btn-sm btn-success edit-item-btn" data-bs-toggle="modal" data-bs-target="#editModal{{ $category->id }}">Editar</button>
                                             </div>
-                                        </td>
-                                        <td>{{ $category->id }}</td>
-                                        <td>{{ $category->name }}</td>
-                                        <td>{{ $category->description }}</td>
-                                        <td>{{ $category->created_at }}</td>
-                                        <td>{{ $category->updated_at }}</td>
-                                        <td>
-                                            <div class="d-flex gap-2">
-                                                <div class="edit">
-                                                    <button class="btn btn-sm btn-success edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Editar</button>
-                                                </div>
-                                                <div class="remove">
-                                                    <button class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal" data-bs-target="#deleteRecordModal" data-category-id="{{ $category->id }}">Eliminar</button>
-
-                                                </div>
+                                            <div class="remove">
+                                                <button class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal" data-bs-target="#deleteRecordModal" data-category-id="{{ $category->id }}">Eliminar</button>
                                             </div>
-                                        </td>
-                                    </tr>
+                                        </div>
+                                    </td>
+                                </tr>
                                 @endforeach
+                                
                             </tbody>
                         </table>
                         <div class="noresult" style="display: none">
                             <div class="text-center">
                                 <lord-icon src="https://cdn.lordicon.com/msoeawqm.json" trigger="loop" colors="primary:#121331,secondary:#08a88a" style="width:75px;height:75px"></lord-icon>
-                                <h5 class="mt-2">Sorry! No Result Found</h5>
-                                <p class="text-muted mb-0">We've searched more than 150+ Orders We did not find any orders for you search.</p>
+                                <h5 class="mt-2">¡Lo siento! No se encontraron resultados</h5>
+                                <p class="text-muted mb-0">Hemos buscado más de 150+ pedidos pero no encontramos ninguno para tu búsqueda.</p>
                             </div>
                         </div>
                     </div>
@@ -77,7 +75,7 @@
                     <div class="d-flex justify-content-end">
                         <div class="pagination-wrap hstack gap-2">
                             <a class="page-item pagination-prev disabled" href="javascript:void(0);">
-                                Anterios
+                                Anterior
                             </a>
                             <ul class="pagination listjs-pagination mb-0"></ul>
                             <a class="page-item pagination-next" href="javascript:void(0);">
@@ -123,19 +121,57 @@
                     <div class="mb-3">
                         <label for="description" class="form-label">Descripción</label>
                         <textarea class="form-control" id="description" name="description" rows="3"></textarea>
-                        <div class="invalid-feedback">Por favor agrega una descripción.</div>               
+                        <div class="invalid-feedback">Por favor agrega una descripción.</div>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <div class="hstack gap-2 justify-content-end">
                         <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cerrar</button>
-                        <button type="submit" class="btn btn-success" id="add-btn">Agregar</button>                   
+                        <button type="submit" class="btn btn-success" id="add-btn">Agregar</button>
                     </div>
                 </div>
             </form>
         </div>
     </div>
 </div>
+<!-- Modificar Modal-->
+@foreach($categories as $category)
+<div class="modal fade" id="editModal{{ $category->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-light p-3">
+                <h5 class="modal-title" id="exampleModalLabel">Modificar categoría</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
+            </div>
+            <form method="POST" action="{{ route('categories.update', $category->id) }}">
+                @csrf
+                @method('PUT')
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Nombre</label>
+                        <input type="text" id="name" name="name" class="form-control" placeholder="Ingresa un nombre" value="{{ $category->name }}" required />
+                        <div class="invalid-feedback">Por favor agrega un nombre para la categoría.</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Descripción</label>
+                        <textarea class="form-control" id="description" name="description" rows="3">{{ $category->description }}</textarea>
+                        <div class="invalid-feedback">Por favor agrega una descripción.</div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="hstack gap-2 justify-content-end">
+                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-success" id="update-btn">Modificar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@endforeach
+
+
 
 
 <!-- Modal -->
@@ -155,7 +191,7 @@
                 </div>
                 <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
                     <button type="button" class="btn w-sm btn-light" data-bs-dismiss="modal">Cerrar</button>
-                    <form id="delete-category-form" action="" method="POST">
+                    <form id="delete-category-form" action="{{ route('categories.destroy', $category->id) }}" method="POST">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn w-sm btn-danger" id="delete-record">¡Sí, bórralo!</button>
@@ -170,5 +206,4 @@
 
 <!--end row-->
 
- @endsection()   
-
+@endsection
