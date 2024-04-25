@@ -3,11 +3,12 @@
 @section( 'title' , 'Categorias')
 
  @section('content')
+ 
  <div class="row">
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title mb-0">Lista de categorias</h4>
+                <h4 class="card-title mb-0">Lista de categorías</h4>
             </div><!-- end card header -->
 
             <div class="card-body">
@@ -16,7 +17,7 @@
                         <div class="col-sm-auto">
                             <div>
                                 <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal" id="create-btn" data-bs-target="#showModal"><i class="ri-add-line align-bottom me-1"></i> Agregar</button>
-                                <button class="btn btn-soft-danger" onClick="deleteMultiple()"><i class="ri-delete-bin-2-line"></i></button>
+                                
                             </div>
                         </div>
                     </div>
@@ -26,18 +27,43 @@
                             <thead class="table-light">
                                 <tr>
                                     <th scope="col" style="width: 50px;">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="checkAll" value="option">
-                                        </div>
+                                   
                                     </th>
                                     <th class="sort" data-sort="customer_name">Id</th>
                                     <th class="sort" data-sort="email">Nombre</th>
                                     <th class="sort" data-sort="phone">Descripción</th>
                                     <th class="sort" data-sort="date">Fecha de creación</th>
-                                    <th class="sort" data-sort="status">Fecha de modificación</th>                               
+                                    <th class="sort" data-sort="status">Fecha de modificación</th>
+                                    <th class="sort" data-sort="action">Acción</th>                               
                                 </tr>
                             </thead>
-                           
+                            <tbody>
+                                @foreach($categories as $category)
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="{{ $category->id }}" id="checkbox{{ $category->id }}">
+                                            </div>
+                                        </td>
+                                        <td>{{ $category->id }}</td>
+                                        <td>{{ $category->name }}</td>
+                                        <td>{{ $category->description }}</td>
+                                        <td>{{ $category->created_at }}</td>
+                                        <td>{{ $category->updated_at }}</td>
+                                        <td>
+                                            <div class="d-flex gap-2">
+                                                <div class="edit">
+                                                    <button class="btn btn-sm btn-success edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Editar</button>
+                                                </div>
+                                                <div class="remove">
+                                                    <button class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal" data-bs-target="#deleteRecordModal" data-category-id="{{ $category->id }}">Eliminar</button>
+
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
                         </table>
                         <div class="noresult" style="display: none">
                             <div class="text-center">
@@ -51,11 +77,11 @@
                     <div class="d-flex justify-content-end">
                         <div class="pagination-wrap hstack gap-2">
                             <a class="page-item pagination-prev disabled" href="javascript:void(0);">
-                                Previous
+                                Anterios
                             </a>
                             <ul class="pagination listjs-pagination mb-0"></ul>
                             <a class="page-item pagination-next" href="javascript:void(0);">
-                                Next
+                                Siguiente
                             </a>
                         </div>
                     </div>
@@ -66,6 +92,7 @@
     </div>
     <!-- end col -->
 </div>
+
 <!-- end row -->
 
 <div class="modal fade" id="showModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -122,18 +149,23 @@
                 <div class="mt-2 text-center">
                     <lord-icon src="https://cdn.lordicon.com/gsqxdxog.json" trigger="loop" colors="primary:#f7b84b,secondary:#f06548" style="width:100px;height:100px"></lord-icon>
                     <div class="mt-4 pt-2 fs-15 mx-4 mx-sm-5">
-                        <h4>Are you Sure ?</h4>
-                        <p class="text-muted mx-4 mb-0">Are you Sure You want to Remove this Record ?</p>
+                        <h4>¿Estás seguro?</h4>
+                        <p class="text-muted mx-4 mb-0">¿Estás seguro de borrar esta categoría?</p>
                     </div>
                 </div>
                 <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
-                    <button type="button" class="btn w-sm btn-light" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn w-sm btn-danger " id="delete-record">Yes, Delete It!</button>
+                    <button type="button" class="btn w-sm btn-light" data-bs-dismiss="modal">Cerrar</button>
+                    <form id="delete-category-form" action="" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn w-sm btn-danger" id="delete-record">¡Sí, bórralo!</button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 <!--end modal -->
 
 <!--end row-->

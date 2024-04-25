@@ -11,12 +11,16 @@ class CategoriesController extends Controller
     public function categories()
     {
         // Lógica para la página "Contacto"
-        return view('categories');
+        $categories = Categories::all();
+        return view('categories', compact('categories'));
     }
+    
     public function index()
     {
-        // Aquí recuperamos y mostramos la lista de categorías
-        $categories = Categories::all(); // Cambiado de Categories a Category
+        // Obtener todas las categorías de la base de datos paginadas
+        $categories = Categories::paginate(10); // Cambia 10 por el número de resultados por página que desees
+    
+        // Enviar los datos a la vista 'categories.index'
         return view('categories.index', compact('categories'));
     }
 

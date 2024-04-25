@@ -46,11 +46,7 @@ class HomeController extends Controller
         // Lógica para la página "Contacto"
         return view('login');
     }
-    public function categories()
-    {
-        // Lógica para la página "Contacto"
-        return view('categories');
-    }
+  
     public function subcategories()
     {
         // Lógica para la página "Contacto"
