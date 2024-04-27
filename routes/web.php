@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\TemperatureController;
+
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\SubcategoriesController;
 
@@ -24,6 +26,9 @@ Route::post('/subcategories', [SubcategoriesController::class, 'store'])->name('
 Route::put('/subcategories/{id}', [SubcategoriesController::class, 'update'])->name('subcategories.update'); // Agrega esta línea
 Route::delete('/subcategories/{id}', [SubcategoriesController::class, 'destroy'])->name('subcategories.destroy');
 
+Route::get('greenhouse', [TemperatureController::class, 'index'])->name('greenhouse');
+
+
 Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
@@ -41,7 +46,7 @@ Route::get('/sensors', [HomeController::class, 'sensors'])->name('sensors');
 Route::get('/profile', [UserController::class, 'profile'])->name('profile');
 Route::get('/listgreenhouse', [HomeController::class, 'listgreenhouse'])->name('listgreenhouse');
 Route::get('/creategreenhouse', [HomeController::class, 'creategreenhouse'])->name('creategreenhouse');
-Route::get('/greenhouse', [HomeController::class, 'greenhouse'])->name('greenhouse');
+
 
 Route::get('/offline', [HomeController::class, 'offline'])->name('offline');
 

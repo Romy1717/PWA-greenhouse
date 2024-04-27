@@ -120,11 +120,7 @@ class HomeController extends Controller
         return view('profile');
     }
     
-    public function greenhouse()
-    {
-        // Lógica para la página "Invernadero"
-        return view('greenhouse');
-    }
+   
     
     public function offline()
     {
