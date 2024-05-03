@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Categories;
 use Illuminate\Http\Request;
-use App\Models\Category; // Corregido el nombre del modelo a Category
 
-class CategoriesController extends Controller
+class CategoryController extends Controller
 {
     public function index()
     {

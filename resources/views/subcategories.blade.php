@@ -17,7 +17,6 @@
                         <div class="col-sm-auto">
                             <div>
                                 <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal" id="create-btn" data-bs-target="#showModal"><i class="ri-add-line align-bottom me-1"></i> Agregar</button>
-
                             </div>
                         </div>
                     </div>
@@ -30,6 +29,7 @@
                                     <th class="sort" data-sort="id">Id</th>
                                     <th class="sort" data-sort="name">Nombre</th>
                                     <th class="sort" data-sort="description">Descripción</th>
+                                    <th class="sort" data-sort="category">Categoría</th>
                                     <th class="sort" data-sort="datecreate">Fecha de creación</th>
                                     <th class="sort" data-sort="datemodify">Fecha de modificación</th>
                                     <th class="sort" data-sort="action">Acción</th>
@@ -38,12 +38,11 @@
                             <tbody>
                                 @foreach($subcategories as $subcategory)
                                 <tr>
-                                    <td>
-                                      
-                                    </td>
+                                    <td></td>
                                     <td>{{ $subcategory->id }}</td>
                                     <td>{{ $subcategory->name }}</td>
                                     <td>{{ $subcategory->description }}</td>
+                                    <td>{{ $subcategory->category->name }}</td> <!-- Aquí se accede al nombre de la categoría -->
                                     <td>{{ $subcategory->created_at }}</td>
                                     <td>{{ $subcategory->updated_at }}</td>
                                     <td>
@@ -91,28 +90,33 @@
                 <h5 class="modal-title" id="exampleModalLabel">Agregar subcategoría</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
             </div>
-            <form action="{{ route('subcategories.store') }}" method="POST"> <!-- Formulario apunta al método store del controlador -->
-                @csrf <!-- Token de seguridad -->
+            <form action="{{ route('subcategories.store') }}" method="POST">
+                @csrf
                 <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="category_id" class="form-label">Categoría</label>
+                        <select name="category_id" id="category_id" class="form-control" required>
+                            <option value="" selected disabled>Selecciona una categoría</option>
+                            @foreach($categories as $category)
+                                <option value="{{ $category->id }}">{{ $category->name }} - {{ $category->description }}</option>
+                            @endforeach
+                        </select>
+                    </div>
                     <div class="mb-3">
                         <label for="name" class="form-label">Nombre</label>
                         <input type="text" id="name" name="name" class="form-control" placeholder="Ingresa un nombre" required />
-                        <div class="invalid-feedback">Por favor agrega un nombre para la subcategoría.</div>
                     </div>
-
                     <div class="mb-3">
                         <label for="description" class="form-label">Descripción</label>
                         <textarea class="form-control" id="description" name="description" rows="3"></textarea>
-                        <div class="invalid-feedback">Por favor agrega una descripción.</div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <div class="hstack gap-2 justify-content-end">
-                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cerrar</button>
-                        <button type="submit" class="btn btn-success" id="add-btn">Agregar</button> <!-- Botón de submit -->
-                    </div>
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-success" id="add-btn">Agregar</button>
                 </div>
             </form>
+            
         </div>
     </div>
 </div>
@@ -139,6 +143,15 @@
                         <label for="description" class="form-label">Descripción</label>
                         <textarea class="form-control" id="description" name="description" rows="3">{{ $subcategory->description }}</textarea>
                         <div class="invalid-feedback">Por favor agrega una descripción.</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="category_id" class="form-label">Categoría</label>
+                        <select name="category_id" id="category_id" class="form-control">
+                            @foreach($categories as $category)
+                            <option value="{{ $category->id }}" {{ $subcategory->category_id == $category->id ? 'selected' : '' }}>{{ $category->name }} - {{ $category->description }}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
                 <div class="modal-footer">

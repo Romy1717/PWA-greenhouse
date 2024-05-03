@@ -29,6 +29,7 @@
                                     <th class="sort" data-sort="id">Id</th>
                                     <th class="sort" data-sort="name">Nombre</th>
                                     <th class="sort" data-sort="description">Descripción</th>
+                                    <th class="sort" data-sort="subcategories_count">Subcategorías</th>
                                     <th class="sort" data-sort="datecreate">Fecha de creación</th>
                                     <th class="sort" data-sort="dame modifi">Fecha de modificación</th>
                                     <th class="sort" data-sort="action">Acción</th>
@@ -41,6 +42,7 @@
                                     <td>{{ $category->id }}</td>
                                     <td>{{ $category->name }}</td>
                                     <td>{{ $category->description }}</td>
+                                    <td>{{ $category->subcategories->count() }}</td> <!-- Cambiado a $category->subcategories->count() -->
                                     <td>{{ $category->created_at }}</td>
                                     <td>{{ $category->updated_at }}</td>
                                     <td>

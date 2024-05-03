@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('description')->nullable();
+            $table->unsignedBigInteger('category_id'); // Agregamos la columna category_id
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade'); // Establecemos la llave foránea
             $table->timestamps();
         });
     }

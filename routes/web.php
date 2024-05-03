@@ -8,22 +8,22 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TemperatureController;
 
-use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SubcategoriesController;
 
 Route::middleware(['auth'])->group(function() {
     Route::get('/business', [HomeController::class, 'business'])->name('business');
 });
 
-Route::post('/categories', [CategoriesController::class, 'store'])->name('categories.store');
-Route::get('/categories', [CategoriesController::class, 'index'])->name('categories.index');
-Route::delete('/categories/{categories}', [CategoriesController::class, 'destroy'])->name('categories.destroy');
-Route::put('/categories/{id}', [CategoriesController::class, 'update'])->name('categories.update');
+Route::post('/categories', [CategoryController::class, 'store'])->name('categories.store');
+Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
+Route::delete('/categories/{categories}', [CategoryController::class, 'destroy'])->name('categories.destroy');
+Route::put('/categories/{id}', [CategoryController::class, 'update'])->name('categories.update');
 
 
 Route::get('/subcategories', [SubcategoriesController::class, 'index'])->name('subcategories.index');
 Route::post('/subcategories', [SubcategoriesController::class, 'store'])->name('subcategories.store');
-Route::put('/subcategories/{id}', [SubcategoriesController::class, 'update'])->name('subcategories.update'); // Agrega esta línea
+Route::put('/subcategories/{id}', [SubcategoriesController::class, 'update'])->name('subcategories.update'); 
 Route::delete('/subcategories/{id}', [SubcategoriesController::class, 'destroy'])->name('subcategories.destroy');
 
 Route::get('greenhouse', [TemperatureController::class, 'index'])->name('greenhouse');
