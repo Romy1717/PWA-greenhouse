@@ -11,7 +11,7 @@
                     <div>
                         <p class="fw-medium text-muted mb-0">Temperatura</p>
                         <h2 class="mt-4 ff-secondary fw-semibold">
-                            <span class="counter-value" data-target="{{ $ultima_temperatura }}">{{ $ultima_temperatura }}</span>
+                            <span class="counter-value" data-target=""></span>
                         </h2>
                     </div>
                     <div>
@@ -34,7 +34,7 @@
                 <div class="d-flex justify-content-between">
                     <div>
                         <p class="fw-medium text-muted mb-0">Humedad</p>
-                        <h2 class="mt-4 ff-secondary fw-semibold"><span class="counter-value" data-target="97.66">0</span></h2>
+                        <h2 class="mt-4 ff-secondary fw-semibold"><span class="counter-value" data-target="97.66"></span></h2>
                     </div>
                     <div>
                         <div class="avatar-sm flex-shrink-0">
@@ -98,13 +98,7 @@
                                 </tr>
                             </thead> 
                             <tbody>
-                                @foreach($temperaturas as $temperatura)
-                                <tr>
-                                    <td>{{ $temperatura->id }}</td>
-                                    <td>{{ $temperatura->temperature }}</td>
-                                    <td>{{ $temperatura->created_at }}</td>
-                                </tr>
-                                @endforeach
+                              
                             </tbody>                      
                         </table>
                     </div>
