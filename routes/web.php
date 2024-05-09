@@ -6,10 +6,10 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\TemperatureController;
-
+use App\Http\Controllers\SensorController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SubcategoriesController;
+use App\Http\Controllers\SensorModelController;
 
 Route::middleware(['auth'])->group(function() {
     Route::get('/business', [HomeController::class, 'business'])->name('business');
@@ -26,8 +26,15 @@ Route::post('/subcategories', [SubcategoriesController::class, 'store'])->name('
 Route::put('/subcategories/{id}', [SubcategoriesController::class, 'update'])->name('subcategories.update'); 
 Route::delete('/subcategories/{id}', [SubcategoriesController::class, 'destroy'])->name('subcategories.destroy');
 
-Route::get('greenhouse', [TemperatureController::class, 'index'])->name('greenhouse');
+Route::get('/sensors', [SensorController::class, 'index'])->name('sensors.index');
+Route::post('/sensors', [SensorController::class, 'store'])->name('sensors.store');
+Route::put('/sensors/{id}', [SensorController::class, 'update'])->name('sensors.update');
+Route::delete('/sensors/{id}', [SensorController::class, 'destroy'])->name('sensors.destroy');
 
+Route::get('/modelos', [SensorModelController::class, 'index'])->name('sensormodel.index');
+Route::post('/modelos', [SensorModelController::class, 'store'])->name('sensormodel.store');
+Route::put('/modelos/{id}', [SensorModelController::class, 'update'])->name('sensormodel.update');
+Route::delete('/modelos/{id}', [SensorModelController::class, 'destroy'])->name('sensormodel.destroy');
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
@@ -42,10 +49,10 @@ Route::get('/certificates', [HomeController::class, 'certificates'])->name('cert
 Route::get('/events', [HomeController::class, 'events'])->name('events');
 Route::get('/profile', [HomeController::class, 'profile'])->name('profile');
 Route::get('/notifications', [HomeController::class, 'notifications'])->name('notifications');
-Route::get('/sensors', [HomeController::class, 'sensors'])->name('sensors');
 Route::get('/profile', [UserController::class, 'profile'])->name('profile');
 Route::get('/listgreenhouse', [HomeController::class, 'listgreenhouse'])->name('listgreenhouse');
 Route::get('/creategreenhouse', [HomeController::class, 'creategreenhouse'])->name('creategreenhouse');
+Route::get('/greenhouse', [HomeController::class, 'greenhouse'])->name('greenhouse');
 
 
 Route::get('/offline', [HomeController::class, 'offline'])->name('offline');

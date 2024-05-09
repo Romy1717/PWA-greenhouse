@@ -9,6 +9,7 @@ class Categories extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name', 'description']; 
     // Definir la relación con las subcategorías
     public function subcategories()
     {

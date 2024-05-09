@@ -89,6 +89,11 @@ class HomeController extends Controller
         // Lógica para la página "Crear invernadero"
         return view('creategreenhouse');
     }
+    public function greenhouse()
+    {
+        // Lógica para la página "Crear invernadero"
+        return view('greenhouse');
+    }
     
     public function listgreenhouse()
     {
@@ -108,12 +113,7 @@ class HomeController extends Controller
         return view('notifications');
     }
     
-    public function sensors()
-    {
-        // Lógica para la página "Sensores"
-        return view('sensors');
-    }
-    
+  
     public function profile()
     {
         // Lógica para la página "Perfil"

@@ -1,4 +1,5 @@
 <?php
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -9,12 +10,16 @@ class CreateModelosTable extends Migration
     {
         Schema::create('modelos', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('sensor_id');
-            $table->foreign('sensor_id')->references('id')->on('sensores')->onDelete('cascade');
-            $table->string('name');
-            $table->string('description')->nullable();
+            $table->foreignId('sensor_id')->constrained('sensores');
+            $table->string('brand')->nullable();
+            $table->string('model')->nullable();
+            $table->string('maker')->nullable();
+            $table->text('description')->nullable();
+            $table->string('measurement_units')->nullable();
             $table->timestamps();
         });
+        
+        
     }
 
     public function down()

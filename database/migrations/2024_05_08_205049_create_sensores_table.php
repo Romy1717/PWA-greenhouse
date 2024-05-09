@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('sensores', function (Blueprint $table) {
             $table->id();
-            $table->type();
+            $table->string('type'); 
+            $table->string('description');  
             $table->timestamps();
         });
     }
