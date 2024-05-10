@@ -8,12 +8,21 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SensorController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\BusinessSubcategoryController;
+use App\Http\Controllers\BusinessCategoryController;
 use App\Http\Controllers\SubcategoriesController;
 use App\Http\Controllers\SensorModelController;
 
 Route::middleware(['auth'])->group(function() {
     Route::get('/business', [HomeController::class, 'business'])->name('business');
 });
+
+Route::get('/businesscategories', [BusinessCategoryController::class, 'index'])->name('businesscategories.index');
+Route::get('/businesscategories/create', [BusinessCategoryController::class, 'create'])->name('businesscategories.create');
+Route::post('/businesscategories/store', [BusinessCategoryController::class, 'store'])->name('businesscategories.store');
+Route::get('/businesscategories/{id}/edit', [BusinessCategoryController::class, 'edit'])->name('businesscategories.edit');
+Route::put('/businesscategories/{id}/update', [BusinessCategoryController::class, 'update'])->name('businesscategories.update');
+Route::delete('/businesscategories/{id}/destroy', [BusinessCategoryController::class, 'destroy'])->name('businesscategories.destroy');
 
 Route::post('/categories', [CategoryController::class, 'store'])->name('categories.store');
 Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');

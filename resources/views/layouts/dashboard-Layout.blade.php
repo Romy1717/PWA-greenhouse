@@ -18,9 +18,9 @@
 
      <!-- gridjs css -->
      <link rel="stylesheet" href="assets/libs/gridjs/theme/mermaid.min.css">
-
-     <!-- Layout config Js -->
-     <script src="assets/js/layout.js"></script>
+      <!-- leaflet css -->
+     <link rel="stylesheet" href="css/leaflet.css">
+     
      <!-- Bootstrap Css -->
      <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
      <!-- Icons Css -->
@@ -116,6 +116,16 @@
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
                                 <a href="{{ route('business') }}" class="nav-link" data-key="t-analytics"> Listado de Negocios </a>
+                            </li>                         
+                        </ul>
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="{{ route('businesscategories.index') }}" class="nav-link" data-key="t-analytics"> Categoria de Negocios </a>
+                            </li>                         
+                        </ul>
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="" class="nav-link" data-key="t-analytics"> Subcategorias de Negocios </a>
                             </li>                         
                         </ul>
                     </div>
@@ -1059,10 +1069,12 @@
 
     <!-- listjs init -->
     <script src="assets/js/pages/listjs.init.js"></script>
-
+    <!-- leaflet init -->
+    <script src="js/leaflet.js"></script>
     <!-- Sweet Alerts js -->
     <script src="assets/libs/sweetalert2/sweetalert2.min.js"></script>
-
+    <!-- Layout config Js -->
+    <script src="assets/js/layout.js"></script>
     <!-- App js -->
     <script src="assets/js/app.js"></script>
 </body>
