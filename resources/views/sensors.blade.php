@@ -66,12 +66,14 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        <div class="noresult" style="display: none">
+                        @if($sensores->isEmpty())
+                        <div class="noresult">
                             <div class="text-center">
                                 <lord-icon src="https://cdn.lordicon.com/msoeawqm.json" trigger="loop" colors="primary:#121331,secondary:#08a88a" style="width:75px;height:75px"></lord-icon>
                                 <h5 class="mt-2">¡Lo siento! No se encontraron resultados</h5>
                             </div>
                         </div>
+                        @endif
                     </div>
 
                 </div>
