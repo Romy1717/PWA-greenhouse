@@ -125,7 +125,7 @@
                         </ul>
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="" class="nav-link" data-key="t-analytics"> Subcategorias de Negocios </a>
+                                <a href="{{ route('subcategoriesbusiness.index') }}" class="nav-link" data-key="t-analytics"> Subcategorias de Negocios </a>
                             </li>                         
                         </ul>
                     </div>

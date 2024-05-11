@@ -8,10 +8,10 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SensorController;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\BusinessSubcategoryController;
 use App\Http\Controllers\BusinessCategoryController;
 use App\Http\Controllers\SubcategoriesController;
 use App\Http\Controllers\SensorModelController;
+use App\Http\Controllers\SubcategoriesBusinessController;
 
 Route::middleware(['auth'])->group(function() {
     Route::get('/business', [HomeController::class, 'business'])->name('business');
@@ -29,6 +29,10 @@ Route::get('/categories', [CategoryController::class, 'index'])->name('categorie
 Route::delete('/categories/{categories}', [CategoryController::class, 'destroy'])->name('categories.destroy');
 Route::put('/categories/{id}', [CategoryController::class, 'update'])->name('categories.update');
 
+Route::get('/subcategoriesbusiness', [SubcategoriesBusinessController::class, 'index'])->name('subcategoriesbusiness.index');
+Route::post('/subcategoriesbusiness', [SubcategoriesBusinessController::class, 'store'])->name('subcategoriesbusiness.store');
+Route::put('/subcategoriesbusiness/{id}', [SubcategoriesBusinessController::class, 'update'])->name('subcategoriesbusiness.update');
+Route::delete('/subcategoriesbusiness/{id}', [SubcategoriesBusinessController::class, 'destroy'])->name('subcategoriesbusiness.destroy');
 
 Route::get('/subcategories', [SubcategoriesController::class, 'index'])->name('subcategories.index');
 Route::post('/subcategories', [SubcategoriesController::class, 'store'])->name('subcategories.store');

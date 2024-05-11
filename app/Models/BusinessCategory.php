@@ -9,16 +9,18 @@ class BusinessCategory extends Model
 {
     use HasFactory;
 
-    protected $table = 'businesssubcategories'; // Especificamos el nombre de la tabla
+    protected $table = 'businesscategories'; // Especificamos el nombre de la tabla
 
     protected $fillable = [
         'name', // Corregido el nombre del campo a 'name'
         'description', // Corregido el nombre del campo a 'descripcion'
     ];
 
-    /* Relación uno a muchos con BusinessSubcategory
-    public function subcategorias()
+    /**
+     * Get the subcategories for the business category.
+     */
+    public function subcategories()
     {
-        return $this->hasMany(Businesssubcategory::class, 'categoria_id', 'id');
-    }*/
+        return $this->hasMany(SubcategoriesBusiness::class, 'business_category_id');
+    }
 }

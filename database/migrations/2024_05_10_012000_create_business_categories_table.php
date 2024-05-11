@@ -7,7 +7,7 @@ class CreateBusinessCategoriesTable extends Migration
 {
     public function up()
     {
-        Schema::create('businesssubcategories', function (Blueprint $table) {
+        Schema::create('businesscategories', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->text('description')->nullable();

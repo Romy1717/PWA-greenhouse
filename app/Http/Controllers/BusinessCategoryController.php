@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -11,14 +12,14 @@ class BusinessCategoryController extends Controller
         // Obtener todas las categorías de la base de datos paginadas
         $businesscategories = BusinessCategory::paginate(10);
         
-        // Enviar los datos a la vista 'businessCategories.index'
-        return view('businessCategories', compact('businesscategories')); // Corregido 'businessCategories' por 'businesscategories.index'
+        // Enviar los datos a la vista 'businesscategories.index'
+        return view('businesscategories', compact('businesscategories')); // Corregido 'businessCategories' por 'businesscategories'
     }
 
     public function create()
     {
         // Este método muestra el formulario para crear una nueva categoría
-        return view('businessCategories.create');
+        return view('businesscategories.create');
     }
     
     public function store(Request $request)
@@ -30,10 +31,7 @@ class BusinessCategoryController extends Controller
         ]);
 
         // Crear una nueva categoría en la base de datos
-        BusinessCategory::create([
-            'name' => $request->name,
-            'description' => $request->description, // Cambiado 'descripcion' por 'description'
-        ]);
+        BusinessCategory::create($request->all());
        
         // Redirigir de vuelta a la página de categorías con un mensaje de éxito
         return redirect()->route('businesscategories.index')->with('status', 'Categoría creada correctamente'); // Cambiado 'businesscategories.index' por 'businesscategories.index'
@@ -45,7 +43,7 @@ class BusinessCategoryController extends Controller
         $businessCategory = BusinessCategory::findOrFail($id);
         
         // Muestra el formulario de edición con la categoría a modificar
-        return view('businessCategories.edit', compact('businessCategory'));
+        return view('businesscategories.edit', compact('businessCategory'));
     }
 
     public function update(Request $request, $id)
@@ -60,10 +58,7 @@ class BusinessCategoryController extends Controller
         ]);
     
         // Actualiza los campos de la categoría
-        $businessCategory->update([
-            'name' => $request->name,
-            'description' => $request->description,
-        ]);
+        $businessCategory->update($request->all());
     
         // Redirige a la página de categorías con un mensaje de éxito
         return redirect()->route('businesscategories.index')->with('status', 'Categoría modificada correctamente'); // Cambiado 'businesscategories.index' por 'businesscategories.index'
