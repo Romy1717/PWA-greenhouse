@@ -103,7 +103,13 @@
                             </li>
                             <li class="nav-item">
                                 <a href="{{ route('greenhouse') }}" class="nav-link" data-key="t-ecommerce"> Panel de administración </a>
-                            </li>                            
+                            </li>  
+                            <li class="nav-item">
+                                <a href="{{ route('categories.index') }}" class="nav-link" data-key="t-crm"> Lista de categorías </a>
+                            </li>  
+                            <li class="nav-item">
+                                <a href="{{ route('subcategories.index') }}" class="nav-link" data-key="t-ecommerce">Lista de subcategorías</a>
+                            </li>                           
                         </ul>
                     </div>
                 </li> <!-- end Greenhouse Menu -->
@@ -120,32 +126,16 @@
                         </ul>
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="{{ route('businesscategories.index') }}" class="nav-link" data-key="t-analytics"> Categoria de Negocios </a>
+                                <a href="{{ route('businesscategories.index') }}" class="nav-link" data-key="t-analytics">Lista de categorías</a>
                             </li>                         
                         </ul>
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="{{ route('subcategoriesbusiness.index') }}" class="nav-link" data-key="t-analytics"> Subcategorias de Negocios </a>
+                                <a href="{{ route('subcategoriesbusiness.index') }}" class="nav-link" data-key="t-analytics">Lista de subcategorías</a>
                             </li>                         
                         </ul>
                     </div>
                 </li> <!-- end Business Menu -->
-                <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebarCategories" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarCategories">
-                        <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Categorías</span>
-                    </a>
-                    <div class="collapse menu-dropdown" id="sidebarCategories">
-                        <ul class="nav nav-sm flex-column">
-                
-                            <li class="nav-item">
-                                <a href="{{ route('categories.index') }}" class="nav-link" data-key="t-crm"> Lista de categorías </a>
-                            </li>  
-                            <li class="nav-item">
-                                <a href="{{ route('subcategories.index') }}" class="nav-link" data-key="t-ecommerce">Lista de subcategorías</a>
-                            </li>                         
-                        </ul>
-                    </div>
-                </li> <!-- end Category Menu -->
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebarSensors" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarSensors">
                         <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Sensores</span>
@@ -223,6 +213,14 @@
                             <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-5 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z"/>
                             <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"/>
                           </svg><span data-key="t-charts">Eventos</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="{{ route('banners') }}">
+                        <svg  width="20" height="20" fill="currentColor" class="bi bi-card-image" viewBox="0 0 16 16">
+                            <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/>
+                            <path d="M1.5 2A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2zm13 1a.5.5 0 0 1 .5.5v6l-3.775-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12v.54L1 12.5v-9a.5.5 0 0 1 .5-.5z"/>
+                          </svg><span data-key="t-charts">Banners</span>
                     </a>
                 </li>
             </ul>

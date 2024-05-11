@@ -12,6 +12,7 @@ use App\Http\Controllers\BusinessCategoryController;
 use App\Http\Controllers\SubcategoriesController;
 use App\Http\Controllers\SensorModelController;
 use App\Http\Controllers\SubcategoriesBusinessController;
+use App\Http\Controllers\GreenhouseController;
 
 Route::middleware(['auth'])->group(function() {
     Route::get('/business', [HomeController::class, 'business'])->name('business');
@@ -49,6 +50,12 @@ Route::post('/modelos', [SensorModelController::class, 'store'])->name('sensormo
 Route::put('/modelos/{id}', [SensorModelController::class, 'update'])->name('sensormodel.update');
 Route::delete('/modelos/{id}', [SensorModelController::class, 'destroy'])->name('sensormodel.destroy');
 
+Route::get('/greenhouse', [GreenhouseController::class, 'showTemperature'])->name('greenhouse');
+
+
+
+
+
 Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
@@ -65,8 +72,7 @@ Route::get('/notifications', [HomeController::class, 'notifications'])->name('no
 Route::get('/profile', [UserController::class, 'profile'])->name('profile');
 Route::get('/listgreenhouse', [HomeController::class, 'listgreenhouse'])->name('listgreenhouse');
 Route::get('/creategreenhouse', [HomeController::class, 'creategreenhouse'])->name('creategreenhouse');
-Route::get('/greenhouse', [HomeController::class, 'greenhouse'])->name('greenhouse');
-
+Route::get('/banners', [HomeController::class, 'banners'])->name('banners');
 
 Route::get('/offline', [HomeController::class, 'offline'])->name('offline');
 

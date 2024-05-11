@@ -11,7 +11,7 @@
                     <div>
                         <p class="fw-medium text-muted mb-0">Temperatura</p>
                         <h2 class="mt-4 ff-secondary fw-semibold">
-                            <span class="counter-value" data-target=""></span>
+                            <span class="counter-value" data-target="">{{ $latestTemperature }}</span>
                         </h2>
                     </div>
                     <div>
@@ -34,7 +34,7 @@
                 <div class="d-flex justify-content-between">
                     <div>
                         <p class="fw-medium text-muted mb-0">Humedad</p>
-                        <h2 class="mt-4 ff-secondary fw-semibold"><span class="counter-value" data-target="97.66"></span></h2>
+                        <h2 class="mt-4 ff-secondary fw-semibold"><span class="counter-value">{{ $latestHumidity }}</span></h2>
                     </div>
                     <div>
                         <div class="avatar-sm flex-shrink-0">
@@ -49,7 +49,7 @@
                 </div>
             </div><!-- end card body -->
         </div> <!-- end card-->
-    </div> <!-- end col-->
+    </div> <!-- end col-->   
 
     <div class="col-xl-4">
         <div class="card card-animate">
@@ -61,31 +61,30 @@
                             <div class="d-flex">
                                 <div class="me-3">
                                     <label class="form-label" for="temperatura">Temperatura</label>
-                                    <input type="text" id="temperatura" name="temperatura" class="form-control" placeholder="#" required />
+                                    <input type="text" id="temperatura" name="temperatura" class="form-control form-control-sm w-60" placeholder="#" required />
                                 </div>
                                 <div>
                                     <label class="form-label" for="humedad">Humedad</label>
-                                    <input type="text" id="humedad" name="humedad" class="form-control" placeholder="#" required />
+                                    <input type="text" id="humedad" name="humedad" class="form-control form-control-sm w-60" placeholder="#" required />
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <!-- Aquí puedes agregar más elementos si es necesario -->
+                    <div class="d-flex align-items-end">
+                        <button type="submit" class="btn btn-primary">Guardar</button>
                     </div>
                 </div>
-            </div><!-- end card body -->
-        </div> <!-- end card-->
-    </div> <!-- end col-->
-</div> <!-- end row -->
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="row">
     <div class="col-xl-6">
         <div class="card">
             <div class="card-header align-items-center d-flex">
                 <h4 class="card-title mb-0 flex-grow-1">Temperatura</h4>
-            </div><!-- end card header -->
-
+            </div>
             <div class="card-body">
                 <div class="live-preview">
                     <div class="table-responsive">
@@ -94,25 +93,30 @@
                                 <tr>
                                     <th scope="col">ID</th>
                                     <th scope="col">Temperatura</th>
-                                    <th scope="col">Fecha</th>                                     
+                                    <th scope="col">Fecha</th>
                                 </tr>
-                            </thead> 
+                            </thead>
                             <tbody>
-                              
-                            </tbody>                      
+                                @foreach($TemperatureHumidity as $data)
+                                <tr>
+                                    <td>{{ $data->id }}</td>
+                                    <td>{{ $data->temperature }}</td>
+                                    <td>{{ $data->created_at }}</td>
+                                </tr>
+                                @endforeach
+                            </tbody>
                         </table>
                     </div>
                 </div>
-            </div><!-- end card-body -->
-        </div><!-- end card -->
-    </div><!-- end col -->
+            </div>
+        </div>
+    </div>
 
     <div class="col-xl-6">
         <div class="card">
             <div class="card-header align-items-center d-flex">
-                <h4 class="card-title mb-0 flex-grow-1">Humedad</h4>              
-            </div><!-- end card header -->
-
+                <h4 class="card-title mb-0 flex-grow-1">Humedad</h4>
+            </div>
             <div class="card-body">
                 <div class="live-preview">
                     <div class="table-responsive">
@@ -121,14 +125,51 @@
                                 <tr>
                                     <th scope="col">ID</th>
                                     <th scope="col">Humedad</th>
-                                    <th scope="col">Fecha</th>   
+                                    <th scope="col">Fecha</th>
                                 </tr>
-                            </thead>                             
+                            </thead>
+                            <tbody>
+                                @foreach($TemperatureHumidity as $data)
+                                <tr>
+                                    <td>{{ $data->id }}</td>
+                                    <td>{{ $data->humidity }}</td>
+                                    <td>{{ $data->created_at }}</td>
+                                </tr>
+                                @endforeach
+                            </tbody>
                         </table>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xl-6">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title mb-0">Temperatura</h4>
+            </div><!-- end card header -->
+
+            <div class="card-body">
+                <div id="line_chart_basic" data-colors='["--vz-primary"]' class="apex-charts" dir="ltr"></div>
             </div><!-- end card-body -->
         </div><!-- end card -->
-    </div><!-- end col -->
-</div><!-- end row -->
+    </div>
+    <!-- end col -->
+    <div class="col-xl-6">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title mb-0">Humedad</h4>
+            </div><!-- end card header -->
+
+            <div class="card-body">
+                <div id="line_chart_zoomable" data-colors='["--vz-success"]' class="apex-charts" dir="ltr"></div>
+            </div><!-- end card-body -->
+        </div><!-- end card -->
+    </div>
+    <!-- end col -->
+</div>
+<!-- end row -->
+                
 @endsection
