@@ -18,22 +18,13 @@ Route::middleware(['auth'])->group(function() {
     Route::get('/business', [HomeController::class, 'business'])->name('business');
 });
 
-Route::get('/businesscategories', [BusinessCategoryController::class, 'index'])->name('businesscategories.index');
-Route::get('/businesscategories/create', [BusinessCategoryController::class, 'create'])->name('businesscategories.create');
-Route::post('/businesscategories/store', [BusinessCategoryController::class, 'store'])->name('businesscategories.store');
-Route::get('/businesscategories/{id}/edit', [BusinessCategoryController::class, 'edit'])->name('businesscategories.edit');
-Route::put('/businesscategories/{id}/update', [BusinessCategoryController::class, 'update'])->name('businesscategories.update');
-Route::delete('/businesscategories/{id}/destroy', [BusinessCategoryController::class, 'destroy'])->name('businesscategories.destroy');
 
 Route::post('/categories', [CategoryController::class, 'store'])->name('categories.store');
 Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
 Route::delete('/categories/{categories}', [CategoryController::class, 'destroy'])->name('categories.destroy');
 Route::put('/categories/{id}', [CategoryController::class, 'update'])->name('categories.update');
 
-Route::get('/subcategoriesbusiness', [SubcategoriesBusinessController::class, 'index'])->name('subcategoriesbusiness.index');
-Route::post('/subcategoriesbusiness', [SubcategoriesBusinessController::class, 'store'])->name('subcategoriesbusiness.store');
-Route::put('/subcategoriesbusiness/{id}', [SubcategoriesBusinessController::class, 'update'])->name('subcategoriesbusiness.update');
-Route::delete('/subcategoriesbusiness/{id}', [SubcategoriesBusinessController::class, 'destroy'])->name('subcategoriesbusiness.destroy');
+
 
 Route::get('/subcategories', [SubcategoriesController::class, 'index'])->name('subcategories.index');
 Route::post('/subcategories', [SubcategoriesController::class, 'store'])->name('subcategories.store');

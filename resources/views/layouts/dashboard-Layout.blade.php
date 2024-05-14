@@ -96,9 +96,6 @@
                     <div class="collapse menu-dropdown" id="sidebarGreenhouse">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="{{ route('creategreenhouse') }}"  class="nav-link" data-key="t-analytics">Crear Invernadero</a>
-                            </li>
-                            <li class="nav-item">
                                 <a href="{{ route('listgreenhouse') }}" class="nav-link" data-key="t-crm">Mis invernaderos </a>
                             </li>
                             <li class="nav-item">
@@ -113,29 +110,7 @@
                         </ul>
                     </div>
                 </li> <!-- end Greenhouse Menu -->
-                
-                <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebarBusiness" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarBusiness">
-                        <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Negocios</span>
-                    </a>
-                    <div class="collapse menu-dropdown" id="sidebarBusiness">
-                        <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
-                                <a href="{{ route('business') }}" class="nav-link" data-key="t-analytics"> Listado de Negocios </a>
-                            </li>                         
-                        </ul>
-                        <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
-                                <a href="{{ route('businesscategories.index') }}" class="nav-link" data-key="t-analytics">Lista de categorías</a>
-                            </li>                         
-                        </ul>
-                        <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
-                                <a href="{{ route('subcategoriesbusiness.index') }}" class="nav-link" data-key="t-analytics">Lista de subcategorías</a>
-                            </li>                         
-                        </ul>
-                    </div>
-                </li> <!-- end Business Menu -->
+        
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebarSensors" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarSensors">
                         <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Sensores</span>
