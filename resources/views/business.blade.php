@@ -10,7 +10,7 @@
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title mb-0">Lista de negocios</h4>
+                                    <h4 class="card-title mb-0">Lista de invernaderos</h4>
                                 </div><!-- end card header -->
                     
                                 <div class="card-body">
@@ -87,7 +87,7 @@
                         <div class="modal-dialog modal-dialog-centered modal-xl"> <!-- Cambié modal-lg por modal-xl para hacerlo más largo -->
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="addSellerLabel">Agregar negocio</h5>
+                                    <h5 class="modal-title" id="addSellerLabel">Agregar invernadero</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-content border-0 mt-3">
