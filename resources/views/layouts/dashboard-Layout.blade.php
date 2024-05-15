@@ -1050,5 +1050,8 @@
     <script src="assets/js/layout.js"></script>
     <!-- App js -->
     <script src="assets/js/app.js"></script>
+    <!-- App js -->
+    <script src="scripts/js/Chart.min.js"></script>
+    <script src="scripts/js/Chart.js"></script>
 </body>
 </html>
