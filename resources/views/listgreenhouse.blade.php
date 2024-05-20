@@ -284,9 +284,6 @@
                                                 </div>
                                             </form>
                                         </div>
-                                        <!-- end  informacion general  -->
-                                        
-                                        <!-- end  informacion general  -->
                                         <!-- horario -->
                                         <div class="tab-pane fade" id="schedule" role="tabpanel">
                                             <form>
@@ -423,76 +420,33 @@
                                          <div class="tab-pane fade" id="locationDetails" role="tabpanel">
                                             <form action="#">
                                                 <div class="row">
-                                                    <div class="col-lg-3">
+                                                    <div class="col-lg-12">
                                                         <div class="mb-3">
-                                                            <label for="postalCodeInput" class="form-label">Código postal:<span class="text-danger">*</span></label>
-                                                            <input type="text" class="form-control" id="postalCodeInput" required>
+                                                            <label for="dDireccion" class="form-label">Dirección</label>
+                                                            <input type="text" class="form-control" id="dDireccion" name="dDireccion" required value="{{ old('dDireccion') }}">
                                                         </div>
-                                                    </div>
-                                                    <div class="col-lg-3">
-                                                        <div class="mb-3">
-                                                            <label for="municipalityInput" class="form-label">Municipio:<span class="text-danger">*</span></label>
-                                                            <input type="text" class="form-control" id="municipalityInput" required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-3">
-                                                        <div class="mb-3">
-                                                            <label for="stateInput" class="form-label">Estado:<span class="text-danger">*</span></label>
-                                                            <input type="text" class="form-control" id="stateInput" required>
-                                                        </div>
-                                                    </div>                 
-                                                    <div class="col-lg-3">
-                                                        <div class="mb-3">
-                                                            <label for="colonyInput" class="form-label">Colonia:<span class="text-danger">*</span></label>
-                                                            <input type="text" class="form-control" id="colonyInput" placeholder="Introduce el nombre de la colonia" required> 
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6">
-                                                        <div class="mb-3">
-                                                            <label for="streetInput" class="form-label">Calle:<span class="text-danger">*</span></label>
-                                                            <input type="text" class="form-control" id="streetInput" placeholder="Introduce el nombre de la calle" required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6">
-                                                        <div class="mb-3">
-                                                            <label for="streetInput" class="form-label">Numero:<span class="text-danger">*</span></label>
-                                                            <input type="text" class="form-control" id="streetInput" placeholder="Numero" required>
-                                                        </div>
+                                                        <h6>Especificar la ubicación del invernadero</h6>
+                                                        <div id="map" style="height: 300px;"></div>
                                                     </div>
                                                     <div class="col-lg-6">
                                                         <div class="mb-3">
                                                             <label for="latitudeInput" class="form-label">Latitud:<span class="text-danger">*</span></label>
-                                                            <input type="number" class="form-control" id="latitudeInput" required>
+                                                            <input type="text" class="form-control latitud-input" id="lat" name="dLatitud" value="{{ old('dLatitud') }}">
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6">
                                                         <div class="mb-3">
                                                             <label for="longitudeInput" class="form-label">Longitud:<span class="text-danger">*</span></label>
-                                                            <input type="number" class="form-control" id="longitudeInput" required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-12">
-                                                        <label class="form-label text-muted">Para buscar la dirección que capturaste en el mapa
-                                                            o posibles sugerencias, haz clic en el botón <strong>"Buscar dirección en el mapa"</strong>, los resultados son sugerencias,
-                                                            no siempre se genera la ubicación exacta, revisa con atención el mapa antes de guardar.
-                                                        </label>
-                                                        <button type="button" id="searchAddressButton" class="btn btn-primary">Buscar dirección en el mapa</button>
-                                                    </div>
-                                                    <div class="col-lg-12">
-                                                        <div class="card">
-                                                            <div class="card-header">
-                                                                <h4 class="card-title mb-0">Mapa de Localización</h4>
-                                                            </div>
-                                                            <div class="card-body">
-                                                                <div id="leaflet-map-custom-icons" class="leaflet-map" style="height: 400px; width: 100%;"></div>
-                                                                <script src="https://maps.googleapis.com/maps/api/js?key=TU_API_KEY&libraries=places"></script>
-
-                                                            </div>
+                                                            <input type="text" class="form-control longitud-input" id="lon" name="dLongitud" value="{{ old('dLongitud') }}">
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <button type="button" id="buscarDireccionBtn" class="btn btn-primary mt-3">Buscar dirección</button>
                                             </form>
                                         </div>
+                                      
+                                        
+                                        
                                     
                                         <!-- end  dirección general  -->
                                         <!-- etiquetas general -->
@@ -533,7 +487,123 @@
                         </div>
                     </div>
             
+@section('scripts')
+<script src="{{ URL::asset('build/libs/prismjs/prism.js') }}"></script>
+<script src="{{ URL::asset('build/js/pages/form-validation.init.js') }}"></script>
+<script src="{{ URL::asset('build/js/app.js') }}"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
 
+<script>
+    jQuery(document).ready(function() {
+        $('#extras-select').chosen({
+            placeholder_text_multiple: "Selecciona algunos extras (opcional)"
+        });
+        $('#categorias-select').chosen({
+            placeholder_text_multiple: "Selecciona algunas categorias (al menos 1)"
+        });
+
+        // Obtener los valores de old() si están disponibles, de lo contrario, usar valores predeterminados
+        var negocioLatitud = <?php echo json_encode(old('dLatitud', '19.7027116')); ?>;
+        var negocioLongitud = <?php echo json_encode(old('dLongitud', '-101.1923818')); ?>;
+
+        // Convertir los valores a números flotantes
+        var startlat = parseFloat(negocioLatitud);
+        var startlon = parseFloat(negocioLongitud);
+
+        // Determinar el valor del zoom
+        var zoomValue = (negocioLatitud === '19.7027116' && negocioLongitud === '-101.1923818') ? 13 : 16;
+
+        var options = {
+            center: [startlat, startlon],
+            zoom: zoomValue
+        }
+
+        document.getElementById('lat').value = startlat;
+        document.getElementById('lon').value = startlon;
+
+        var map = L.map('map', options);
+        var nzoom = 13;
+
+        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+            attribution: 'OSM'
+        }).addTo(map);
+
+        var myMarker = L.marker([startlat, startlon], {
+            title: "Coordinates",
+            alt: "Coordinates",
+            draggable: true
+        }).addTo(map).on('dragend', function() {
+            var lat = myMarker.getLatLng().lat.toFixed(8);
+            var lon = myMarker.getLatLng().lng.toFixed(8);
+            var czoom = map.getZoom();
+            if (czoom < 18) {
+                nzoom = czoom + 2;
+            }
+            if (nzoom > 18) {
+                nzoom = 18;
+            }
+            if (czoom != 18) {
+                map.setView([lat, lon], nzoom);
+            } else {
+                map.setView([lat, lon]);
+            }
+            document.getElementById('lat').value = lat;
+            document.getElementById('lon').value = lon;
+            myMarker.bindPopup("Lat " + lat + "<br />Lon " + lon).openPopup();
+        });
+
+        function chooseAddr(lat1, lng1) {
+            myMarker.closePopup();
+            map.setView([lat1, lng1], 12);
+            myMarker.setLatLng([lat1, lng1]);
+            document.getElementById('lat').value = lat1;
+            document.getElementById('lon').value = lng1;
+        }
+
+        function addr_search() {
+            var direccion = document.getElementById("dDireccion").value;
+            var xmlhttp = new XMLHttpRequest();
+            var url = "https://nominatim.openstreetmap.org/search?format=json&limit=3&q=" + direccion;
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    var arr = JSON.parse(this.responseText);
+                    if (arr.length > 0) {
+                        chooseAddr(arr[0].lat, arr[0].lon);
+                    }
+                }
+            };
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
+
+        // Agregar el evento de clic al botón
+        document.getElementById('buscarDireccionBtn').addEventListener('click', addr_search);
+
+        // Actualizar la posición del marcador cuando cambian las coordenadas de latitud y longitud en el formulario
+        document.getElementById('lat').addEventListener('change', function() {
+            var latitud = parseFloat(this.value);
+            var longitud = parseFloat(document.getElementById('lon').value);
+            myMarker.setLatLng([latitud, longitud]);
+            map.setView([latitud, longitud], map.getZoom());
+        });
+
+        document.getElementById('lon').addEventListener('change', function() {
+            var latitud = parseFloat(document.getElementById('lat').value);
+            var longitud = parseFloat(this.value);
+            myMarker.setLatLng([latitud, longitud]);
+            map.setView([latitud, longitud], map.getZoom());
+        });
+    });
+</script>
+
+
+@endsection()  
                     
  @endsection()   
 
