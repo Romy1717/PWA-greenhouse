@@ -419,7 +419,7 @@
                                         </div>
                                         <!--end horario-->
                                        
-                                         <!-- dirección general -->
+                                         <!-- dirección  -->
                                          <div class="tab-pane fade" id="locationDetails" role="tabpanel">
                                             <form action="#">
                                                 <div class="row">
@@ -427,12 +427,6 @@
                                                         <div class="mb-3">
                                                             <label for="postalCodeInput" class="form-label">Código postal:<span class="text-danger">*</span></label>
                                                             <input type="text" class="form-control" id="postalCodeInput" required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-3">
-                                                        <div class="mb-3">
-                                                            <label for="localityInput" class="form-label">Localidad:<span class="text-danger">*</span></label>
-                                                            <input type="text" class="form-control" id="localityInput" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-3">
@@ -447,13 +441,13 @@
                                                             <input type="text" class="form-control" id="stateInput" required>
                                                         </div>
                                                     </div>                 
-                                                    <div class="col-lg-12">
+                                                    <div class="col-lg-3">
                                                         <div class="mb-3">
                                                             <label for="colonyInput" class="form-label">Colonia:<span class="text-danger">*</span></label>
                                                             <input type="text" class="form-control" id="colonyInput" placeholder="Introduce el nombre de la colonia" required> 
                                                         </div>
                                                     </div>
-                                                    <div class="col-lg-12">
+                                                    <div class="col-lg-6">
                                                         <div class="mb-3">
                                                             <label for="streetInput" class="form-label">Calle:<span class="text-danger">*</span></label>
                                                             <input type="text" class="form-control" id="streetInput" placeholder="Introduce el nombre de la calle" required>
@@ -461,31 +455,24 @@
                                                     </div>
                                                     <div class="col-lg-6">
                                                         <div class="mb-3">
-                                                            <label for="exteriorNumberInput" class="form-label">Número exterior: <span class="text-danger">*</span></label>
-                                                            <input type="number" class="form-control" id="exteriorNumberInput" required>
+                                                            <label for="streetInput" class="form-label">Numero:<span class="text-danger">*</span></label>
+                                                            <input type="text" class="form-control" id="streetInput" placeholder="Numero" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6">
                                                         <div class="mb-3">
-                                                            <label for="interiorNumberInput" class="form-label">Número interior:</label>
-                                                            <input type="number" class="form-control" id="interiorNumberInput">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6">
-                                                        <div class="mb-3">
-                                                            <label for="latitudeInput" class="form-label">Latitud:</label>
+                                                            <label for="latitudeInput" class="form-label">Latitud:<span class="text-danger">*</span></label>
                                                             <input type="number" class="form-control" id="latitudeInput" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6">
                                                         <div class="mb-3">
-                                                            <label for="longitudeInput" class="form-label">Longitud:</label>
+                                                            <label for="longitudeInput" class="form-label">Longitud:<span class="text-danger">*</span></label>
                                                             <input type="number" class="form-control" id="longitudeInput" required>
-                                                          
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-12">
-                                                        <label  class="form-label text-muted">Para buscar la dirección que capturaste en el mapa
+                                                        <label class="form-label text-muted">Para buscar la dirección que capturaste en el mapa
                                                             o posibles sugerencias, haz clic en el botón <strong>"Buscar dirección en el mapa"</strong>, los resultados son sugerencias,
                                                             no siempre se genera la ubicación exacta, revisa con atención el mapa antes de guardar.
                                                         </label>
@@ -498,52 +485,8 @@
                                                             </div>
                                                             <div class="card-body">
                                                                 <div id="leaflet-map-custom-icons" class="leaflet-map" style="height: 400px; width: 100%;"></div>
-                                                                <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
-                                                                <script>
-                                                                    document.addEventListener('DOMContentLoaded', function() {
-                                                                        var map = L.map('leaflet-map-custom-icons').setView([19.432608, -99.133209], 13);
-                                        
-                                                                        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                                                                            maxZoom: 19,
-                                                                        }).addTo(map);
-                                        
-                                                                        var marker = L.marker([19.432608, -99.133209]).addTo(map)
-                                                                            .bindPopup('Ubicación de ejemplo')
-                                                                            .openPopup();
-                                        
-                                                                        document.querySelector('#searchAddressButton').addEventListener('click', function() {
-                                                                            var codigoPostal = document.querySelector('#postalCodeInput').value;
-                                                                            var localidad = document.querySelector('#localityInput').value;
-                                                                            var municipio = document.querySelector('#municipalityInput').value;
-                                                                            var estado = document.querySelector('#stateInput').value;
-                                                                            var colonia = document.querySelector('#colonyInput').value;
-                                                                            var calle = document.querySelector('#streetInput').value;
-                                                                            var numeroExterior = document.querySelector('#exteriorNumberInput').value;
-                                        
-                                                                            var direccion = `${calle} ${numeroExterior}, ${colonia}, ${municipio}, ${estado}, ${codigoPostal}, ${localidad}, México`;
-                                        
-                                                                            fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(direccion)}`)
-                                                                                .then(response => response.json())
-                                                                                .then(data => {
-                                                                                    if (data.length > 0) {
-                                                                                        var lat = data[0].lat;
-                                                                                        var lon = data[0].lon;
-                                        
-                                                                                        document.querySelector('#latitudeInput').value = lat;
-                                                                                        document.querySelector('#longitudeInput').value = lon;
-                                        
-                                                                                        map.setView([lat, lon], 13);
-                                                                                        marker.setLatLng([lat, lon])
-                                                                                            .bindPopup(`Ubicación: ${direccion}`)
-                                                                                            .openPopup();
-                                                                                    } else {
-                                                                                        alert('No se encontró la dirección. Por favor, verifica los datos.');
-                                                                                    }
-                                                                                })
-                                                                                .catch(error => console.error('Error al buscar la dirección:', error));
-                                                                        });
-                                                                    });
-                                                                </script>
+                                                                <script src="https://maps.googleapis.com/maps/api/js?key=TU_API_KEY&libraries=places"></script>
+
                                                             </div>
                                                         </div>
                                                     </div>

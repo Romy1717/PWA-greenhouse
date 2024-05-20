@@ -20,7 +20,7 @@
      <link rel="stylesheet" href="assets/libs/gridjs/theme/mermaid.min.css">
       <!-- leaflet css -->
      <link rel="stylesheet" href="css/leaflet.css">
-     
+     <script src="https://maps.googleapis.com/maps/api/js?key=TU_API_KEY&libraries=places"></script>
      <!-- Bootstrap Css -->
      <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
      <!-- Icons Css -->
