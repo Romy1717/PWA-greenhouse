@@ -103,11 +103,6 @@
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" data-bs-toggle="tab" href="#descriptionDetails" role="tab" aria-selected="false">
-                                                Descripción
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
                                             <a class="nav-link" data-bs-toggle="tab" href="#locationDetails" role="tab" aria-selected="false">
                                                 Dirección y ubicación en el mapa
                                             </a>
@@ -130,48 +125,20 @@
                                                             <label for="firstnameInput" class="form-label">
                                                                 Nombre:<span class="text-danger">*</span>
                                                             </label>
-                                                            <input type="text" class="form-control" id="firstnameInput" placeholder="Nombre del necogio" required>
+                                                            <input type="text" class="form-control" id="firstnameInput" placeholder="Nombre del invernadero" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6">
                                                         <div class="mb-3">
                                                             <label for="firstnameInput" class="form-label">Descripción corta:<span class="text-danger">*</span></label>
-                                                            <input type="text" class="form-control" id="firstnameInput" placeholder="Describe tu negocio en pocas palabras o escribe tu slogan">
+                                                            <input type="text" class="form-control" id="firstnameInput" placeholder="Describe tu invernadero en pocas palabras" required>
                                                         </div>
                                                     </div>
                                                     <!--end col-->
-                                                        <div class="col-lg-6 col-md-6">
-                                                            <div class="mb-3">
-                                                                <label for="choices-single-no-sorting" class="form-label">Categoria:</label>
-                                                                <select class="form-control" id="choices-single-no-sorting" name="choices-single-no-sorting" data-choices data-choices-sorting-false>
-                                                                    <option value="Madrid">Madrid</option>
-                                                                    <option value="Toronto">Toronto</option>
-                                                                    <option value="Vancouver">Vancouver</option>
-                                                                    <option value="London">London</option>
-                                                                    <option value="Manchester">Manchester</option>
-                                                                    <option value="Liverpool">Liverpool</option>
-                                                                    <option value="Paris">Paris</option>
-                                                                    <option value="Malaga">Malaga</option>
-                                                                    <option value="Washington" disabled>Washington</option>
-                                                                    <option value="Lyon">Lyon</option>
-                                                                    <option value="Marseille">Marseille</option>
-                                                                    <option value="Hamburg">Hamburg</option>
-                                                                    <option value="Munich">Munich</option>
-                                                                    <option value="Barcelona">Barcelona</option>
-                                                                    <option value="Berlin">Berlin</option>
-                                                                    <option value="Montreal">Montreal</option>
-                                                                    <option value="New York">New York</option>
-                                                                    <option value="Michigan">Michigan</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                   
-                                                    <!--end col-->
-                                                    
                                                     <div class="col-lg-6 col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="choices-single-no-sorting" class="form-label">Subcategoria:</label>
-                                                            <select class="form-control" id="choices-single-no-sorting" name="choices-single-no-sorting" data-choices data-choices-sorting-false>
+                                                            <label for="choices-single-no-sorting" class="form-label">Categoria:<span class="text-danger">*</span></label>
+                                                            <select class="form-control" id="choices-single-no-sorting" name="choices-single-no-sorting" data-choices data-choices-sorting-false required>
                                                                 <option value="Madrid">Madrid</option>
                                                                 <option value="Toronto">Toronto</option>
                                                                 <option value="Vancouver">Vancouver</option>
@@ -193,39 +160,65 @@
                                                             </select>
                                                         </div>
                                                     </div>
-                                                     <!--end col-->
-                                                    <div class="col-lg-6">
+                                                    <!--end col-->
+                                                    <div class="col-lg-6 col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="emailidInput" class="form-label">Correo:</label>
-                                                            <input type="email" class="form-control" id="emailidInput" placeholder="hola@negocios.com">
+                                                            <label for="choices-single-no-sorting" class="form-label">Subcategoria:<span class="text-danger">*</span></label>
+                                                            <select class="form-control" id="choices-single-no-sorting" name="choices-single-no-sorting" data-choices data-choices-sorting-false required>
+                                                                <option value="Madrid">Madrid</option>
+                                                                <option value="Toronto">Toronto</option>
+                                                                <option value="Vancouver">Vancouver</option>
+                                                                <option value="London">London</option>
+                                                                <option value="Manchester">Manchester</option>
+                                                                <option value="Liverpool">Liverpool</option>
+                                                                <option value="Paris">Paris</option>
+                                                                <option value="Malaga">Malaga</option>
+                                                                <option value="Washington" disabled>Washington</option>
+                                                                <option value="Lyon">Lyon</option>
+                                                                <option value="Marseille">Marseille</option>
+                                                                <option value="Hamburg">Hamburg</option>
+                                                                <option value="Munich">Munich</option>
+                                                                <option value="Barcelona">Barcelona</option>
+                                                                <option value="Berlin">Berlin</option>
+                                                                <option value="Montreal">Montreal</option>
+                                                                <option value="New York">New York</option>
+                                                                <option value="Michigan">Michigan</option>
+                                                            </select>
                                                         </div>
                                                     </div>
                                                     <!--end col-->
                                                     <div class="col-lg-6">
                                                         <div class="mb-3">
-                                                            <label for="phonenumberInput" class="form-label">Teléfono:</label>
-                                                            <input type="number" class="form-control" id="phonenumberInput" placeholder="Número de atención al cliente">
+                                                            <label for="emailidInput" class="form-label">Correo:<span class="text-danger">*</span></label>
+                                                            <input type="email" class="form-control" id="emailidInput" placeholder="hola@invernadero.com" required>
                                                         </div>
                                                     </div>
-                                                     <!--end col-->
+                                                    <!--end col-->
+                                                    <div class="col-lg-6">
+                                                        <div class="mb-3">
+                                                            <label for="phonenumberInput" class="form-label">Teléfono:<span class="text-danger">*</span></label>
+                                                            <input type="number" class="form-control" id="phonenumberInput" placeholder="Número de atención al cliente" required>
+                                                        </div>
+                                                    </div>
+                                                    <!--end col-->
                                                     <div class="col-lg-6">
                                                         <div class="mb-3">
                                                             <label for="phonenumberInput" class="form-label">WhatsApp:</label>
                                                             <input type="number" class="form-control" id="phonenumberInput" placeholder="Número WhatsApp">
                                                         </div>
                                                     </div>
-                                                     <!--end col-->
-                                                     <div class="col-lg-6">
+                                                    <!--end col-->
+                                                    <div class="col-lg-6">
                                                         <div class="mb-3">
                                                             <label for="phonenumberInput" class="form-label">Sitio web:</label>
-                                                            <input type="number" class="form-control" id="phonenumberInput" placeholder="www.minegocio.com">
+                                                            <input type="number" class="form-control" id="phonenumberInput" placeholder="www.miinvernadero.com">
                                                         </div>
                                                     </div>
                                                     <!--end col-->
                                                     <div class="col-lg-4">
                                                         <div class="mb-3">
                                                             <label for="birthdayidInput" class="form-label">Facebook:</label>
-                                                            <input type="text" id="birthdayidInput" class="form-control" data-provider="flatpickr" placeholder="Facebook de tu negocio">
+                                                            <input type="text" id="birthdayidInput" class="form-control" data-provider="flatpickr" placeholder="Facebook de tu invernadero">
                                                             <label for="birthdayidInput" class="form-label text-muted">URL después de https://www.facebook.com/ </label>
                                                         </div>
                                                     </div>
@@ -233,7 +226,7 @@
                                                     <div class="col-lg-4">
                                                         <div class="mb-3">
                                                             <label for="cityidInput" class="form-label">Instagram:</label>
-                                                            <input type="text" class="form-control" id="cityidInput" placeholder="Instagram de tu negocio">
+                                                            <input type="text" class="form-control" id="cityidInput" placeholder="Instagram de tu invernadero">
                                                             <label for="birthdayidInput" class="form-label text-muted">URL después de https://www.instagram.com/ </label>
                                                         </div>
                                                     </div>
@@ -241,7 +234,7 @@
                                                     <div class="col-lg-4">
                                                         <div class="mb-3">
                                                             <label for="countryidInput" class="form-label text-muted">Twitter</label>
-                                                            <input type="text" class="form-control" id="countryidInput" placeholder="Twitter de tu negocio">
+                                                            <input type="text" class="form-control" id="countryidInput" placeholder="Twitter de tu invernadero">
                                                             <label for="birthdayidInput" class="form-label text-muted">URL después de https://www.twitter.com/</label>
                                                         </div>
                                                     </div>
@@ -282,16 +275,17 @@
                                                             <div class="form-check form-check-inline mb-3">
                                                                 <input class="form-check-input" type="checkbox" id="gridCheck5">
                                                                 <label class="form-check-label" for="gridCheck5">
-                                                                  Envió a domicilio 
+                                                                  Envío a domicilio 
                                                                 </label>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <!--end col-->
-                                                            
                                                 </div>
                                             </form>
                                         </div>
+                                        <!-- end  informacion general  -->
+                                        
                                         <!-- end  informacion general  -->
                                         <!-- horario -->
                                         <div class="tab-pane fade" id="schedule" role="tabpanel">
@@ -424,92 +418,140 @@
                                             </form>
                                         </div>
                                         <!--end horario-->
-                                        <!-- descripción general -->
-                                        <div class="tab-pane fade" id="descriptionDetails" role="tabpanel">
-                                            <form action="#">
-                                                <div>
-                                                    <label class="form-label" for="gen-info-description-input">Descripción:</label>
-                                                    <textarea class="form-control" style="height: 400px;" placeholder="Agrega una descripción de tu negocio" id="gen-info-description-input" rows="4" required></textarea>
-                                                    <div class="invalid-feedback">Agrega una descripción de tu negocio</div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                         <!-- end  descripción general  -->
+                                       
                                          <!-- dirección general -->
                                          <div class="tab-pane fade" id="locationDetails" role="tabpanel">
                                             <form action="#">
                                                 <div class="row">
                                                     <div class="col-lg-3">
                                                         <div class="mb-3">
-                                                            <label for="firstnameInput" class="form-label">Código postal:</label>
-                                                            <input type="text" class="form-control" id="firstnameInput">
+                                                            <label for="postalCodeInput" class="form-label">Código postal:<span class="text-danger">*</span></label>
+                                                            <input type="text" class="form-control" id="postalCodeInput" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-3">
                                                         <div class="mb-3">
-                                                            <label for="firstnameInput" class="form-label">Localidad:</label>
-                                                            <input type="text" class="form-control" id="firstnameInput">
+                                                            <label for="localityInput" class="form-label">Localidad:<span class="text-danger">*</span></label>
+                                                            <input type="text" class="form-control" id="localityInput" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-3">
                                                         <div class="mb-3">
-                                                            <label for="firstnameInput" class="form-label">Municipio:</label>
-                                                            <input type="text" class="form-control" id="firstnameInput">
+                                                            <label for="municipalityInput" class="form-label">Municipio:<span class="text-danger">*</span></label>
+                                                            <input type="text" class="form-control" id="municipalityInput" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-3">
                                                         <div class="mb-3">
-                                                            <label for="firstnameInput" class="form-label">Estado:</label>
-                                                            <input type="text" class="form-control" id="firstnameInput">
+                                                            <label for="stateInput" class="form-label">Estado:<span class="text-danger">*</span></label>
+                                                            <input type="text" class="form-control" id="stateInput" required>
                                                         </div>
                                                     </div>                 
-                                                    <div class="col-lg-14">
+                                                    <div class="col-lg-12">
                                                         <div class="mb-3">
-                                                            <label for="emailidInput" class="form-label">Colonia:</label>
-                                                            <input type="email" class="form-control" id="emailidInput" placeholder="Introduce el nombre de la colonia">
+                                                            <label for="colonyInput" class="form-label">Colonia:<span class="text-danger">*</span></label>
+                                                            <input type="text" class="form-control" id="colonyInput" placeholder="Introduce el nombre de la colonia" required> 
                                                         </div>
                                                     </div>
-                                                    <div class="col-lg-14">
+                                                    <div class="col-lg-12">
                                                         <div class="mb-3">
-                                                            <label for="emailidInput" class="form-label">Calle:</label>
-                                                            <input type="email" class="form-control" id="emailidInput" placeholder="Introduce el nombre de la calle">
+                                                            <label for="streetInput" class="form-label">Calle:<span class="text-danger">*</span></label>
+                                                            <input type="text" class="form-control" id="streetInput" placeholder="Introduce el nombre de la calle" required>
                                                         </div>
                                                     </div>
-                                                    <!--end col-->
                                                     <div class="col-lg-6">
                                                         <div class="mb-3">
-                                                            <label for="phonenumberInput" class="form-label">Número exterior:</label>
-                                                            <input type="number" class="form-control" id="phonenumberInput">
+                                                            <label for="exteriorNumberInput" class="form-label">Número exterior: <span class="text-danger">*</span></label>
+                                                            <input type="number" class="form-control" id="exteriorNumberInput" required>
                                                         </div>
                                                     </div>
-                                                     <!--end col-->
                                                     <div class="col-lg-6">
                                                         <div class="mb-3">
-                                                            <label for="phonenumberInput" class="form-label">Número interior:</label>
-                                                            <input type="number" class="form-control" id="phonenumberInput" >
+                                                            <label for="interiorNumberInput" class="form-label">Número interior:</label>
+                                                            <input type="number" class="form-control" id="interiorNumberInput">
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6">
                                                         <div class="mb-3">
                                                             <label for="latitudeInput" class="form-label">Latitud:</label>
-                                                            <input type="text" class="form-control" id="latitudeInput" placeholder="Latitud" readonly>
+                                                            <input type="number" class="form-control" id="latitudeInput" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6">
                                                         <div class="mb-3">
                                                             <label for="longitudeInput" class="form-label">Longitud:</label>
-                                                            <input type="text" class="form-control" id="longitudeInput" placeholder="Longitud" readonly>
+                                                            <input type="number" class="form-control" id="longitudeInput" required>
+                                                          
                                                         </div>
                                                     </div>
-                                                    <label for="longitudeInput" class="form-label text-muted "> Para buscar la dirección que capturaste en el mapa
-                                                        o posibles sugerencias, haz clic en el boton <strong>"Buscar dirección en el mapa"</strong>, los resultaod son sugerencias,
-                                                        no siempre se genera la ubicación exacta, revisa con atención el mapa antes de guardar.
-                                                    </label>
-                                                   
-                                                    
+                                                    <div class="col-lg-12">
+                                                        <label  class="form-label text-muted">Para buscar la dirección que capturaste en el mapa
+                                                            o posibles sugerencias, haz clic en el botón <strong>"Buscar dirección en el mapa"</strong>, los resultados son sugerencias,
+                                                            no siempre se genera la ubicación exacta, revisa con atención el mapa antes de guardar.
+                                                        </label>
+                                                        <button type="button" id="searchAddressButton" class="btn btn-primary">Buscar dirección en el mapa</button>
+                                                    </div>
+                                                    <div class="col-lg-12">
+                                                        <div class="card">
+                                                            <div class="card-header">
+                                                                <h4 class="card-title mb-0">Mapa de Localización</h4>
+                                                            </div>
+                                                            <div class="card-body">
+                                                                <div id="leaflet-map-custom-icons" class="leaflet-map" style="height: 400px; width: 100%;"></div>
+                                                                <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+                                                                <script>
+                                                                    document.addEventListener('DOMContentLoaded', function() {
+                                                                        var map = L.map('leaflet-map-custom-icons').setView([19.432608, -99.133209], 13);
+                                        
+                                                                        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                                                                            maxZoom: 19,
+                                                                        }).addTo(map);
+                                        
+                                                                        var marker = L.marker([19.432608, -99.133209]).addTo(map)
+                                                                            .bindPopup('Ubicación de ejemplo')
+                                                                            .openPopup();
+                                        
+                                                                        document.querySelector('#searchAddressButton').addEventListener('click', function() {
+                                                                            var codigoPostal = document.querySelector('#postalCodeInput').value;
+                                                                            var localidad = document.querySelector('#localityInput').value;
+                                                                            var municipio = document.querySelector('#municipalityInput').value;
+                                                                            var estado = document.querySelector('#stateInput').value;
+                                                                            var colonia = document.querySelector('#colonyInput').value;
+                                                                            var calle = document.querySelector('#streetInput').value;
+                                                                            var numeroExterior = document.querySelector('#exteriorNumberInput').value;
+                                        
+                                                                            var direccion = `${calle} ${numeroExterior}, ${colonia}, ${municipio}, ${estado}, ${codigoPostal}, ${localidad}, México`;
+                                        
+                                                                            fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(direccion)}`)
+                                                                                .then(response => response.json())
+                                                                                .then(data => {
+                                                                                    if (data.length > 0) {
+                                                                                        var lat = data[0].lat;
+                                                                                        var lon = data[0].lon;
+                                        
+                                                                                        document.querySelector('#latitudeInput').value = lat;
+                                                                                        document.querySelector('#longitudeInput').value = lon;
+                                        
+                                                                                        map.setView([lat, lon], 13);
+                                                                                        marker.setLatLng([lat, lon])
+                                                                                            .bindPopup(`Ubicación: ${direccion}`)
+                                                                                            .openPopup();
+                                                                                    } else {
+                                                                                        alert('No se encontró la dirección. Por favor, verifica los datos.');
+                                                                                    }
+                                                                                })
+                                                                                .catch(error => console.error('Error al buscar la dirección:', error));
+                                                                        });
+                                                                    });
+                                                                </script>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </form>
-                                        </div> 
+                                        </div>
+                                        
+                                        
                                         <!-- end  dirección general  -->
                                         <!-- etiquetas general -->
                                         <div class="tab-pane" id="labelDetails" role="tabpanel">

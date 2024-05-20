@@ -21,6 +21,7 @@
     "dependencies": {
         "bootstrap-icons": "^1.11.3",
         "chart.js": "^4.4.1",
+        "leaflet": "^1.9.4",
         "material-icons": "^1.13.12"
     }
 }
