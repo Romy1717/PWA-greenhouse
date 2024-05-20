@@ -493,8 +493,7 @@
                                                 </div>
                                             </form>
                                         </div>
-                                        
-                                        
+                                    
                                         <!-- end  dirección general  -->
                                         <!-- etiquetas general -->
                                         <div class="tab-pane" id="labelDetails" role="tabpanel">
