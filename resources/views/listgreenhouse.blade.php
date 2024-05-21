@@ -98,6 +98,11 @@
                                             </a>
                                         </li>
                                         <li class="nav-item">
+                                            <a class="nav-link " data-bs-toggle="tab" href="#specificinformation" role="tab" aria-selected="true">
+                                                Información espesifica
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
                                             <a class="nav-link" data-bs-toggle="tab" href="#schedule" role="tab" aria-selected="false">
                                                 Horarios
                                             </a>
@@ -134,6 +139,110 @@
                                                             <input type="text" class="form-control" id="firstnameInput" placeholder="Describe tu invernadero en pocas palabras" required>
                                                         </div>
                                                     </div>
+                                                    <!--end col-->
+                                               
+                                                    <div class="col-lg-6">
+                                                        <div class="mb-3">
+                                                            <label for="emailidInput" class="form-label">Correo:<span class="text-danger">*</span></label>
+                                                            <input type="email" class="form-control" id="emailidInput" placeholder="hola@invernadero.com" required>
+                                                        </div>
+                                                    </div>
+                                                    <!--end col-->
+                                                    <div class="col-lg-6">
+                                                        <div class="mb-3">
+                                                            <label for="phonenumberInput" class="form-label">Teléfono:<span class="text-danger">*</span></label>
+                                                            <input type="number" class="form-control" id="phonenumberInput" placeholder="Número de atención al cliente" required>
+                                                        </div>
+                                                    </div>
+                                                    <!--end col-->
+                                                    <div class="col-lg-6">
+                                                        <div class="mb-3">
+                                                            <label for="phonenumberInput" class="form-label">WhatsApp:</label>
+                                                            <input type="number" class="form-control" id="phonenumberInput" placeholder="Número WhatsApp">
+                                                        </div>
+                                                    </div>
+                                                    <!--end col-->
+                                                    <div class="col-lg-6">
+                                                        <div class="mb-3">
+                                                            <label for="phonenumberInput" class="form-label">Sitio web:</label>
+                                                            <input type="number" class="form-control" id="phonenumberInput" placeholder="www.miinvernadero.com">
+                                                        </div>
+                                                    </div>
+                                                    <!--end col-->
+                                                    <div class="col-lg-4">
+                                                        <div class="mb-3">
+                                                            <label for="birthdayidInput" class="form-label">Facebook:</label>
+                                                            <input type="text" id="birthdayidInput" class="form-control" data-provider="flatpickr" placeholder="Facebook de tu invernadero">
+                                                            <label for="birthdayidInput" class="form-label text-muted">URL después de https://www.facebook.com/ </label>
+                                                        </div>
+                                                    </div>
+                                                    <!--end col-->
+                                                    <div class="col-lg-4">
+                                                        <div class="mb-3">
+                                                            <label for="cityidInput" class="form-label">Instagram:</label>
+                                                            <input type="text" class="form-control" id="cityidInput" placeholder="Instagram de tu invernadero">
+                                                            <label for="birthdayidInput" class="form-label text-muted">URL después de https://www.instagram.com/ </label>
+                                                        </div>
+                                                    </div>
+                                                    <!--end col-->
+                                                    <div class="col-lg-4">
+                                                        <div class="mb-3">
+                                                            <label for="countryidInput" class="form-label text-muted">Twitter</label>
+                                                            <input type="text" class="form-control" id="countryidInput" placeholder="Twitter de tu invernadero">
+                                                            <label for="birthdayidInput" class="form-label text-muted">URL después de https://www.twitter.com/</label>
+                                                        </div>
+                                                    </div>
+                                                    <!--end col-->
+                                                    <div class="row">
+                                                        <label for="countryidInput" class="form-label">Características</label>
+                                                        <div class="col-lg-12 mt-3">
+                                                            <div class="form-check form-check-inline mb-3">
+                                                                <input class="form-check-input" type="checkbox" id="gridCheck1">
+                                                                <label class="form-check-label" for="gridCheck1">
+                                                                   Wi-Fi.
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-check form-check-inline mb-3">
+                                                                <input class="form-check-input" type="checkbox" id="gridCheck2">
+                                                                <label class="form-check-label" for="gridCheck2">
+                                                                   Estacionamiento.
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-check form-check-inline mb-3">
+                                                                <input class="form-check-input" type="checkbox" id="gridCheck3">
+                                                                <label class="form-check-label" for="gridCheck3">
+                                                                   Área de fumadores.
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-check form-check-inline mb-3">
+                                                                <input class="form-check-input" type="checkbox" id="gridCheck4">
+                                                                <label class="form-check-label" for="gridCheck4">
+                                                                  Acepta tarjeta.
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-check form-check-inline mb-3">
+                                                                <input class="form-check-input" type="checkbox" id="gridCheck5">
+                                                                <label class="form-check-label" for="gridCheck5">
+                                                                  Elevador.
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-check form-check-inline mb-3">
+                                                                <input class="form-check-input" type="checkbox" id="gridCheck5">
+                                                                <label class="form-check-label" for="gridCheck5">
+                                                                  Envío a domicilio 
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!--end col-->
+                                                </div>
+                                            </form>
+                                        </div>
+                                         <!-- informacion especifica -->
+                                         <div class="tab-pane fade" id="specificinformation" role="tabpanel">
+                                            <form action="#">
+                                                <div class="row">
+                                                 
                                                     <!--end col-->
                                                     <div class="col-lg-6 col-md-6">
                                                         <div class="mb-3">
@@ -283,7 +392,9 @@
                                                     <!--end col-->
                                                 </div>
                                             </form>
+
                                         </div>
+                                          <!-- end general -->
                                         <!-- horario -->
                                         <div class="tab-pane fade" id="schedule" role="tabpanel">
                                             <form>
@@ -444,10 +555,6 @@
                                                 <button type="button" id="buscarDireccionBtn" class="btn btn-primary mt-3">Buscar dirección</button>
                                             </form>
                                         </div>
-                                      
-                                        
-                                        
-                                    
                                         <!-- end  dirección general  -->
                                         <!-- etiquetas general -->
                                         <div class="tab-pane" id="labelDetails" role="tabpanel">
