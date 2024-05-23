@@ -25,17 +25,12 @@
                                                     </div>
                                                     <!--end col-->
                                                     <div class="col-xxl-3 ms-auto">
-                                                        <div>
-                                                            <select class="form-control" id="category-select" >
-                                                                <option value="All">Selecciona una categoria</option>
-                                                                
-                                                            </select>
-                                                        </div>
+                                                        
                                                     </div>
                                                     <!--end col-->
                                                     <div class="col-lg-auto">
                                                         <div class="hstack gap-2">
-                                                            <button type="button" class="btn btn-danger"><i class="ri-equalizer-fill me-1 align-bottom"></i>Filtrar</button>
+                                                            
                                                             <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addSeller"><i class="ri-add-fill me-1 align-bottom"></i> Agregar</button>
                                                         </div>
                                                     </div>
@@ -99,7 +94,7 @@
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link " data-bs-toggle="tab" href="#specificinformation" role="tab" aria-selected="true">
-                                                Información espesifica
+                                                Descripción
                                             </a>
                                         </li>
                                         <li class="nav-item">
@@ -123,278 +118,171 @@
                                     <div class="tab-content">
                                         <!-- informacion general -->
                                         <div class="tab-pane active" id="Generalinformation" role="tabpanel">
-                                            <form action="#">
-                                                <div class="row">
+                                            <form id="myForm" action="#">
+                                                <div class="row mt-3">
                                                     <div class="col-lg-6">
                                                         <div class="mb-3">
-                                                            <label for="firstnameInput" class="form-label">
-                                                                Nombre:<span class="text-danger">*</span>
-                                                            </label>
+                                                            <label for="firstnameInput" class="form-label">Nombre:<span class="text-danger">*</span></label>
                                                             <input type="text" class="form-control" id="firstnameInput" placeholder="Nombre del invernadero" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6">
                                                         <div class="mb-3">
-                                                            <label for="firstnameInput" class="form-label">Descripción corta:<span class="text-danger">*</span></label>
-                                                            <input type="text" class="form-control" id="firstnameInput" placeholder="Describe tu invernadero en pocas palabras" required>
+                                                            <label for="shortDescriptionInput" class="form-label">Descripción corta:<span class="text-danger">*</span></label>
+                                                            <input type="text" class="form-control" id="shortDescriptionInput" placeholder="Describe tu invernadero en pocas palabras" required>
                                                         </div>
                                                     </div>
-                                                    <!--end col-->
-                                               
                                                     <div class="col-lg-6">
                                                         <div class="mb-3">
                                                             <label for="emailidInput" class="form-label">Correo:<span class="text-danger">*</span></label>
                                                             <input type="email" class="form-control" id="emailidInput" placeholder="hola@invernadero.com" required>
                                                         </div>
                                                     </div>
-                                                    <!--end col-->
                                                     <div class="col-lg-6">
                                                         <div class="mb-3">
                                                             <label for="phonenumberInput" class="form-label">Teléfono:<span class="text-danger">*</span></label>
                                                             <input type="number" class="form-control" id="phonenumberInput" placeholder="Número de atención al cliente" required>
                                                         </div>
                                                     </div>
-                                                    <!--end col-->
                                                     <div class="col-lg-6">
                                                         <div class="mb-3">
-                                                            <label for="phonenumberInput" class="form-label">WhatsApp:</label>
-                                                            <input type="number" class="form-control" id="phonenumberInput" placeholder="Número WhatsApp">
+                                                            <label for="whatsappInput" class="form-label">WhatsApp:</label>
+                                                            <input type="number" class="form-control" id="whatsappInput" placeholder="Número WhatsApp">
                                                         </div>
                                                     </div>
-                                                    <!--end col-->
                                                     <div class="col-lg-6">
                                                         <div class="mb-3">
-                                                            <label for="phonenumberInput" class="form-label">Sitio web:</label>
-                                                            <input type="number" class="form-control" id="phonenumberInput" placeholder="www.miinvernadero.com">
+                                                            <label for="websiteInput" class="form-label">Sitio web:</label>
+                                                            <input type="text" class="form-control" id="websiteInput" placeholder="www.miinvernadero.com">
                                                         </div>
                                                     </div>
-                                                    <!--end col-->
-                                                    <div class="col-lg-4">
-                                                        <div class="mb-3">
-                                                            <label for="birthdayidInput" class="form-label">Facebook:</label>
-                                                            <input type="text" id="birthdayidInput" class="form-control" data-provider="flatpickr" placeholder="Facebook de tu invernadero">
-                                                            <label for="birthdayidInput" class="form-label text-muted">URL después de https://www.facebook.com/ </label>
-                                                        </div>
-                                                    </div>
-                                                    <!--end col-->
-                                                    <div class="col-lg-4">
-                                                        <div class="mb-3">
-                                                            <label for="cityidInput" class="form-label">Instagram:</label>
-                                                            <input type="text" class="form-control" id="cityidInput" placeholder="Instagram de tu invernadero">
-                                                            <label for="birthdayidInput" class="form-label text-muted">URL después de https://www.instagram.com/ </label>
-                                                        </div>
-                                                    </div>
-                                                    <!--end col-->
-                                                    <div class="col-lg-4">
-                                                        <div class="mb-3">
-                                                            <label for="countryidInput" class="form-label text-muted">Twitter</label>
-                                                            <input type="text" class="form-control" id="countryidInput" placeholder="Twitter de tu invernadero">
-                                                            <label for="birthdayidInput" class="form-label text-muted">URL después de https://www.twitter.com/</label>
-                                                        </div>
-                                                    </div>
-                                                    <!--end col-->
-                                                    <div class="row">
-                                                        <label for="countryidInput" class="form-label">Características</label>
-                                                        <div class="col-lg-12 mt-3">
-                                                            <div class="form-check form-check-inline mb-3">
-                                                                <input class="form-check-input" type="checkbox" id="gridCheck1">
-                                                                <label class="form-check-label" for="gridCheck1">
-                                                                   Wi-Fi.
-                                                                </label>
-                                                            </div>
-                                                            <div class="form-check form-check-inline mb-3">
-                                                                <input class="form-check-input" type="checkbox" id="gridCheck2">
-                                                                <label class="form-check-label" for="gridCheck2">
-                                                                   Estacionamiento.
-                                                                </label>
-                                                            </div>
-                                                            <div class="form-check form-check-inline mb-3">
-                                                                <input class="form-check-input" type="checkbox" id="gridCheck3">
-                                                                <label class="form-check-label" for="gridCheck3">
-                                                                   Área de fumadores.
-                                                                </label>
-                                                            </div>
-                                                            <div class="form-check form-check-inline mb-3">
-                                                                <input class="form-check-input" type="checkbox" id="gridCheck4">
-                                                                <label class="form-check-label" for="gridCheck4">
-                                                                  Acepta tarjeta.
-                                                                </label>
-                                                            </div>
-                                                            <div class="form-check form-check-inline mb-3">
-                                                                <input class="form-check-input" type="checkbox" id="gridCheck5">
-                                                                <label class="form-check-label" for="gridCheck5">
-                                                                  Elevador.
-                                                                </label>
-                                                            </div>
-                                                            <div class="form-check form-check-inline mb-3">
-                                                                <input class="form-check-input" type="checkbox" id="gridCheck5">
-                                                                <label class="form-check-label" for="gridCheck5">
-                                                                  Envío a domicilio 
-                                                                </label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!--end col-->
                                                 </div>
+                                                <div class="row">
+                                                    <div class="col-lg-4">
+                                                        <div class="mb-3">
+                                                            <label for="facebookInput" class="form-label">Facebook:</label>
+                                                            <input type="text" id="facebookInput" class="form-control" placeholder="Facebook de tu invernadero">
+                                                            <label for="facebookInput" class="form-label text-muted">URL después de https://www.facebook.com/ </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="mb-3">
+                                                            <label for="instagramInput" class="form-label">Instagram:</label>
+                                                            <input type="text" class="form-control" id="instagramInput" placeholder="Instagram de tu invernadero">
+                                                            <label for="instagramInput" class="form-label text-muted">URL después de https://www.instagram.com/ </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="mb-3">
+                                                            <label for="twitterInput" class="form-label">Twitter:</label>
+                                                            <input type="text" class="form-control" id="twitterInput" placeholder="Twitter de tu invernadero">
+                                                            <label for="twitterInput" class="form-label text-muted">URL después de https://www.twitter.com/</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <label for="countryidInput" class="form-label">Características:<span class="text-danger">*</span></label>
+                                                    <div class="col-lg-12 mt-3">
+                                                        <div class="form-check form-check-inline mb-3">
+                                                            <input class="form-check-input" type="checkbox" id="gridCheck1" name="features">
+                                                            <label class="form-check-label" for="gridCheck1">Wi-Fi</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline mb-3">
+                                                            <input class="form-check-input" type="checkbox" id="gridCheck2" name="features">
+                                                            <label class="form-check-label" for="gridCheck2">Estacionamiento</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline mb-3">
+                                                            <input class="form-check-input" type="checkbox" id="gridCheck3" name="features">
+                                                            <label class="form-check-label" for="gridCheck3">Área de fumadores</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline mb-3">
+                                                            <input class="form-check-input" type="checkbox" id="gridCheck4" name="features">
+                                                            <label class="form-check-label" for="gridCheck4">Acepta tarjeta</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline mb-3">
+                                                            <input class="form-check-input" type="checkbox" id="gridCheck5" name="features">
+                                                            <label class="form-check-label" for="gridCheck5">Elevador</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline mb-3">
+                                                            <input class="form-check-input" type="checkbox" id="gridCheck6" name="features">
+                                                            <label class="form-check-label" for="gridCheck6">Envío a domicilio</label>
+                                                        </div>
+                                                        <div class="invalid-feedback d-block" id="checkboxError" style="display: none;">
+                                                            Por favor selecciona al menos una característica.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                               
                                             </form>
                                         </div>
-                                         <!-- informacion especifica -->
+                                         <!-- Descripción -->
                                          <div class="tab-pane fade" id="specificinformation" role="tabpanel">
                                             <form action="#">
                                                 <div class="row">
-                                                 
-                                                    <!--end col-->
+                                                    <!-- Columna de categoría -->
                                                     <div class="col-lg-6 col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="choices-single-no-sorting" class="form-label">Categoria:<span class="text-danger">*</span></label>
-                                                            <select class="form-control" id="choices-single-no-sorting" name="choices-single-no-sorting" data-choices data-choices-sorting-false required>
+                                                            <label for="categoryInput" class="form-label">Categoría:<span class="text-danger">*</span></label>
+                                                            <select class="form-control select2" id="categoryInput" name="categoryInput" required>
                                                                 <option value="Madrid">Madrid</option>
-                                                                <option value="Toronto">Toronto</option>
-                                                                <option value="Vancouver">Vancouver</option>
-                                                                <option value="London">London</option>
-                                                                <option value="Manchester">Manchester</option>
-                                                                <option value="Liverpool">Liverpool</option>
-                                                                <option value="Paris">Paris</option>
-                                                                <option value="Malaga">Malaga</option>
-                                                                <option value="Washington" disabled>Washington</option>
-                                                                <option value="Lyon">Lyon</option>
-                                                                <option value="Marseille">Marseille</option>
-                                                                <option value="Hamburg">Hamburg</option>
-                                                                <option value="Munich">Munich</option>
-                                                                <option value="Barcelona">Barcelona</option>
-                                                                <option value="Berlin">Berlin</option>
-                                                                <option value="Montreal">Montreal</option>
-                                                                <option value="New York">New York</option>
-                                                                <option value="Michigan">Michigan</option>
+                                                                <!-- Agrega más opciones aquí según sea necesario -->
                                                             </select>
                                                         </div>
                                                     </div>
-                                                    <!--end col-->
+                                                    <!-- Columna de subcategoría -->
                                                     <div class="col-lg-6 col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="choices-single-no-sorting" class="form-label">Subcategoria:<span class="text-danger">*</span></label>
-                                                            <select class="form-control" id="choices-single-no-sorting" name="choices-single-no-sorting" data-choices data-choices-sorting-false required>
-                                                                <option value="Madrid">Madrid</option>
+                                                            <label for="subCategoryInput" class="form-label">Subcategoría:<span class="text-danger">*</span></label>
+                                                            <select class="form-control select2" id="subCategoryInput" name="subCategoryInput" required>
                                                                 <option value="Toronto">Toronto</option>
-                                                                <option value="Vancouver">Vancouver</option>
-                                                                <option value="London">London</option>
-                                                                <option value="Manchester">Manchester</option>
-                                                                <option value="Liverpool">Liverpool</option>
-                                                                <option value="Paris">Paris</option>
-                                                                <option value="Malaga">Malaga</option>
-                                                                <option value="Washington" disabled>Washington</option>
-                                                                <option value="Lyon">Lyon</option>
-                                                                <option value="Marseille">Marseille</option>
-                                                                <option value="Hamburg">Hamburg</option>
-                                                                <option value="Munich">Munich</option>
-                                                                <option value="Barcelona">Barcelona</option>
-                                                                <option value="Berlin">Berlin</option>
-                                                                <option value="Montreal">Montreal</option>
-                                                                <option value="New York">New York</option>
-                                                                <option value="Michigan">Michigan</option>
+                                                                <!-- Agrega más opciones aquí según sea necesario -->
                                                             </select>
                                                         </div>
                                                     </div>
-                                                    <!--end col-->
-                                                    <div class="col-lg-6">
+                                                    <!-- Columna de producto -->
+                                                    <div class="col-lg-12">
                                                         <div class="mb-3">
-                                                            <label for="emailidInput" class="form-label">Correo:<span class="text-danger">*</span></label>
-                                                            <input type="email" class="form-control" id="emailidInput" placeholder="hola@invernadero.com" required>
+                                                            <label for="productInput" class="form-label">Producto:<span class="text-danger">*</span></label>
+                                                            <input type="email" class="form-control" id="productInput" placeholder="Ejemplo... Fresa" required>
                                                         </div>
                                                     </div>
-                                                    <!--end col-->
-                                                    <div class="col-lg-6">
+                                                    <!-- Columna de sensores -->
+                                                    <div class="col-lg-6 col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="phonenumberInput" class="form-label">Teléfono:<span class="text-danger">*</span></label>
-                                                            <input type="number" class="form-control" id="phonenumberInput" placeholder="Número de atención al cliente" required>
+                                                            <label for="sensorTypeInput" class="form-label">Tipo de sensor:<span class="text-danger">*</span></label>
+                                                            <select class="form-select select2" id="sensorTypeInput" name="sensorTypeInput[]" multiple="multiple" required>
+                                                                <option value="Sensor1">Sensor 1</option>
+                                                                <option value="Sensor2">Sensor 2</option>
+                                                                <option value="Sensor3">Sensor 3</option>
+                                                                <!-- Agrega más opciones aquí según sea necesario -->
+                                                            </select>
                                                         </div>
                                                     </div>
-                                                    <!--end col-->
-                                                    <div class="col-lg-6">
+                                                    <!-- Columna de modelos -->
+                                                    <div class="col-lg-6 col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="phonenumberInput" class="form-label">WhatsApp:</label>
-                                                            <input type="number" class="form-control" id="phonenumberInput" placeholder="Número WhatsApp">
+                                                            <label for="modelInput" class="form-label">Modelo:<span class="text-danger">*</span></label>
+                                                            <select class="form-select select2" id="modelInput" name="modelInput[]" multiple="multiple" required>
+                                                                <option value="ModeloA">Modelo A</option>
+                                                                <option value="ModeloB">Modelo B</option>
+                                                                <option value="ModeloC">Modelo C</option>
+                                                                <!-- Agrega más opciones aquí según sea necesario -->
+                                                            </select>
                                                         </div>
                                                     </div>
-                                                    <!--end col-->
-                                                    <div class="col-lg-6">
-                                                        <div class="mb-3">
-                                                            <label for="phonenumberInput" class="form-label">Sitio web:</label>
-                                                            <input type="number" class="form-control" id="phonenumberInput" placeholder="www.miinvernadero.com">
-                                                        </div>
+                                                </div>
+                                                <!-- Columna de descripción -->
+                                                <div class="row mb-6">
+                                                    <div class="col-lg-12">
+                                                        <label for="messageInput" class="form-label">Descripción corta:</label>
                                                     </div>
-                                                    <!--end col-->
-                                                    <div class="col-lg-4">
-                                                        <div class="mb-3">
-                                                            <label for="birthdayidInput" class="form-label">Facebook:</label>
-                                                            <input type="text" id="birthdayidInput" class="form-control" data-provider="flatpickr" placeholder="Facebook de tu invernadero">
-                                                            <label for="birthdayidInput" class="form-label text-muted">URL después de https://www.facebook.com/ </label>
-                                                        </div>
+                                                    <div class="col-lg-12">
+                                                        <textarea class="form-control" id="messageInput" rows="10" placeholder="Ingresa una descripción corta sobre tu invernadero..."></textarea>
                                                     </div>
-                                                    <!--end col-->
-                                                    <div class="col-lg-4">
-                                                        <div class="mb-3">
-                                                            <label for="cityidInput" class="form-label">Instagram:</label>
-                                                            <input type="text" class="form-control" id="cityidInput" placeholder="Instagram de tu invernadero">
-                                                            <label for="birthdayidInput" class="form-label text-muted">URL después de https://www.instagram.com/ </label>
-                                                        </div>
-                                                    </div>
-                                                    <!--end col-->
-                                                    <div class="col-lg-4">
-                                                        <div class="mb-3">
-                                                            <label for="countryidInput" class="form-label text-muted">Twitter</label>
-                                                            <input type="text" class="form-control" id="countryidInput" placeholder="Twitter de tu invernadero">
-                                                            <label for="birthdayidInput" class="form-label text-muted">URL después de https://www.twitter.com/</label>
-                                                        </div>
-                                                    </div>
-                                                    <!--end col-->
-                                                    <div class="row">
-                                                        <label for="countryidInput" class="form-label">Características</label>
-                                                        <div class="col-lg-12 mt-3">
-                                                            <div class="form-check form-check-inline mb-3">
-                                                                <input class="form-check-input" type="checkbox" id="gridCheck1">
-                                                                <label class="form-check-label" for="gridCheck1">
-                                                                   Wi-Fi.
-                                                                </label>
-                                                            </div>
-                                                            <div class="form-check form-check-inline mb-3">
-                                                                <input class="form-check-input" type="checkbox" id="gridCheck2">
-                                                                <label class="form-check-label" for="gridCheck2">
-                                                                   Estacionamiento.
-                                                                </label>
-                                                            </div>
-                                                            <div class="form-check form-check-inline mb-3">
-                                                                <input class="form-check-input" type="checkbox" id="gridCheck3">
-                                                                <label class="form-check-label" for="gridCheck3">
-                                                                   Área de fumadores.
-                                                                </label>
-                                                            </div>
-                                                            <div class="form-check form-check-inline mb-3">
-                                                                <input class="form-check-input" type="checkbox" id="gridCheck4">
-                                                                <label class="form-check-label" for="gridCheck4">
-                                                                  Acepta tarjeta.
-                                                                </label>
-                                                            </div>
-                                                            <div class="form-check form-check-inline mb-3">
-                                                                <input class="form-check-input" type="checkbox" id="gridCheck5">
-                                                                <label class="form-check-label" for="gridCheck5">
-                                                                  Elevador.
-                                                                </label>
-                                                            </div>
-                                                            <div class="form-check form-check-inline mb-3">
-                                                                <input class="form-check-input" type="checkbox" id="gridCheck5">
-                                                                <label class="form-check-label" for="gridCheck5">
-                                                                  Envío a domicilio 
-                                                                </label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!--end col-->
                                                 </div>
                                             </form>
-
                                         </div>
-                                          <!-- end general -->
+                                          <!-- end descripcion -->
                                         <!-- horario -->
                                         <div class="tab-pane fade" id="schedule" role="tabpanel">
                                             <form>
@@ -555,8 +443,8 @@
                                                 <button type="button" id="buscarDireccionBtn" class="btn btn-primary mt-3">Buscar dirección</button>
                                             </form>
                                         </div>
-                                        <!-- end  dirección general  -->
-                                        <!-- etiquetas general -->
+                                        <!-- end  dirección   -->
+                                        <!-- etiquetas  -->
                                         <div class="tab-pane" id="labelDetails" role="tabpanel">
                                             <form action="#">
                                                 <div class="mb-14">
@@ -587,7 +475,7 @@
                                             </form>
                                         </div>
                                         
-                                        <!-- end  etiquetas general  -->
+                                        <!-- end  etiquetas   -->
                                     </div>
                                 </div>
                             </div>
@@ -707,8 +595,33 @@
             map.setView([latitud, longitud], map.getZoom());
         });
     });
+    
 </script>
+<script>
+        document.getElementById('myForm').addEventListener('submit', function(event) {
+            var checkboxes = document.querySelectorAll('input[name="features"]');
+            var checked = 0;
 
+            checkboxes.forEach(function(checkbox) {
+                if (checkbox.checked) {
+                    checked++;
+                }
+            });
+
+            if (checked < 1) {  // Cambiar el número según cuántos checkbox sean necesarios
+                event.preventDefault();  // Prevenir el envío del formulario
+                document.getElementById('checkboxError').style.display = 'block';
+            } else {
+                document.getElementById('checkboxError').style.display = 'none';
+            }
+        });
+</script>
+<script>
+    // Inicializar selectores Select2 después de que el DOM esté completamente cargado
+    $(document).ready(function() {
+        $('.select2').select2();
+    });
+</script>
 
 @endsection()  
                     
