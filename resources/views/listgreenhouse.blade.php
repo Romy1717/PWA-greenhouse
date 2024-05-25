@@ -413,6 +413,8 @@
                                                 </div>
                                             </form>
                                         </div>
+
+                                        
                                         <!--end horario-->
                                        
                                          <!-- dirección  -->
@@ -616,12 +618,7 @@
             }
         });
 </script>
-<script>
-    // Inicializar selectores Select2 después de que el DOM esté completamente cargado
-    $(document).ready(function() {
-        $('.select2').select2();
-    });
-</script>
+
 
 @endsection()  
                     
