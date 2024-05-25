@@ -15,11 +15,11 @@ class CreateTemperatureHumidityTable extends Migration
     {
         Schema::create('temperature_humidity', function (Blueprint $table) {
             $table->id();
-            $table->decimal('temperature', 5, 2); 
-            $table->decimal('humidity', 5, 2); 
-            $table->decimal('setT', 5, 2)->nullable(); 
-            $table->decimal('setH', 5, 2)->nullable(); 
-            $table->timestamps(); 
+            $table->integer('temperature'); 
+            $table->integer('humidity'); 
+            $table->integer('setT')->nullable(); 
+            $table->integer('setH')->nullable(); 
+            $table->timestamp('created_at')->useCurrent();
         });
     }
 

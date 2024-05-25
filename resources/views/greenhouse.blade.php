@@ -149,7 +149,6 @@
         </div>
     </div>
 </div>
-
 <div class="row">
     <div class="col-xl-6">
         <div class="card">
@@ -177,7 +176,6 @@
     <!-- end col -->
 </div>
 
-
 <!-- end row -->
 @section('scripts')
  <!-- JAVASCRIPT -->
@@ -200,7 +198,7 @@
  <script src="assets/js/app.js"></script>
  <!-- Incluye la librería de ApexCharts -->
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         // Obtener datos de temperatura y humedad de PHP
@@ -251,7 +249,6 @@
         chart2.render();
     });
 </script>
-
     
 
 @endsection()             

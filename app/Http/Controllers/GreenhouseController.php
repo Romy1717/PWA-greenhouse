@@ -18,14 +18,14 @@ class GreenhouseController extends Controller
         // Obtener el último registro para setT y setH
         $latestRecord = TemperatureHumidity::latest('created_at')->first();
         
-        // Obtener todos los registros de temperatura y humedad
-        $temperatureHumidityData = TemperatureHumidity::all();
+        // Obtener los últimos 10 registros de temperatura y humedad ordenados por fecha de creación en orden ascendente
+        $temperatureHumidityData = TemperatureHumidity::orderBy('created_at', 'desc')->take(10)->get()->reverse();
     
         // Inicializar arrays para los datos de temperatura y humedad
         $temperatureData = $temperatureHumidityData->pluck('temperature')->toArray();
         $humidityData = $temperatureHumidityData->pluck('humidity')->toArray();
         $dates = $temperatureHumidityData->pluck('created_at')->map(function ($item) {
-            return $item->format('l'); // Obtener el día de la semana
+            return $item->format('l, H:i'); // Obtener el día de la semana y la hora
         })->toArray();
     
         return view('greenhouse', [
@@ -38,7 +38,6 @@ class GreenhouseController extends Controller
             'dates' => $dates,
         ]);
     }
-    
 
     public function updateSetValues(Request $request)
     {
