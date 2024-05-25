@@ -105,7 +105,7 @@
                                 <a href="{{ route('listgreenhouse') }}" class="nav-link" data-key="t-crm">Mis invernaderos </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('greenhouse') }}" class="nav-link" data-key="t-ecommerce"> Panel de administración </a>
+                                <a href="{{ route('showTemperature') }}" class="nav-link" data-key="t-ecommerce"> Panel de administración </a>
                             </li>  
                             <li class="nav-item">
                                 <a href="{{ route('categories.index') }}" class="nav-link" data-key="t-crm"> Lista de categorías </a>

@@ -17,6 +17,8 @@ class CreateTemperatureHumidityTable extends Migration
             $table->id();
             $table->decimal('temperature', 5, 2); 
             $table->decimal('humidity', 5, 2); 
+            $table->decimal('setT', 5, 2)->nullable(); 
+            $table->decimal('setH', 5, 2)->nullable(); 
             $table->timestamps(); 
         });
     }

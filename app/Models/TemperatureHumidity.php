@@ -14,5 +14,8 @@ class TemperatureHumidity extends Model
     protected $fillable = [
         'temperature',
         'humidity',
+        'setT',
+        'setH',
+
     ];
 }

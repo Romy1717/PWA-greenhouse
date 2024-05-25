@@ -54,29 +54,34 @@
     <div class="col-xl-4">
         <div class="card card-animate">
             <div class="card-body">
-                <div class="d-flex justify-content-between">
-                    <div>
-                        <p class="fw-medium text-muted mb-0">Parámetros</p>
-                        <div class="form-outline mb-2">
-                            <div class="d-flex">
-                                <div class="me-3">
-                                    <label class="form-label" for="temperatura">Temperatura</label>
-                                    <input type="text" id="temperatura" name="temperatura" class="form-control form-control-sm w-60" placeholder="#" required />
-                                </div>
-                                <div>
-                                    <label class="form-label" for="humedad">Humedad</label>
-                                    <input type="text" id="humedad" name="humedad" class="form-control form-control-sm w-60" placeholder="#" required />
+                <form action="{{ route('updateSetValues') }}" method="POST">
+                    @csrf
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <p class="fw-medium text-muted mb-0">Parámetros</p>
+                            <div class="form-outline mb-2">
+                                <div class="d-flex">
+                                    <div class="me-3">
+                                        <label class="form-label" for="setT">Temperatura</label>
+                                        <input type="text" id="setT" name="setT" class="form-control form-control-sm w-60" placeholder="#" value="{{ $latestRecord->setT ?? '' }}" required />
+                                    </div>
+                                    <div>
+                                        <label class="form-label" for="setH">Humedad</label>
+                                        <input type="text" id="setH" name="setH" class="form-control form-control-sm w-60" placeholder="#" value="{{ $latestRecord->setH ?? '' }}" required />
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="d-flex align-items-end">
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </div>
                     </div>
-                    <div class="d-flex align-items-end">
-                        <button type="submit" class="btn btn-primary">Guardar</button>
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>
+    
+    
 </div>
 
 <div class="row">
@@ -144,6 +149,7 @@
         </div>
     </div>
 </div>
+
 <div class="row">
     <div class="col-xl-6">
         <div class="card">
@@ -152,7 +158,7 @@
             </div><!-- end card header -->
 
             <div class="card-body">
-                <div id="line_chart_basic" data-colors='["--vz-primary"]' class="apex-charts" dir="ltr"></div>
+                <div id="line_chart_basic_1" class="apex-charts" data-colors='["#34c38f"]' dir="ltr"></div>
             </div><!-- end card-body -->
         </div><!-- end card -->
     </div>
@@ -164,12 +170,89 @@
             </div><!-- end card header -->
 
             <div class="card-body">
-                <div id="line_chart_zoomable" data-colors='["--vz-success"]' class="apex-charts" dir="ltr"></div>
+                <div id="line_chart_basic_2" class="apex-charts" data-colors='["#556ee6"]' dir="ltr"></div>
             </div><!-- end card-body -->
         </div><!-- end card -->
     </div>
     <!-- end col -->
 </div>
+
+
 <!-- end row -->
-                
-@endsection
+@section('scripts')
+ <!-- JAVASCRIPT -->
+ <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+ <script src="assets/libs/simplebar/simplebar.min.js"></script>
+ <script src="assets/libs/node-waves/waves.min.js"></script>
+ <script src="assets/libs/feather-icons/feather.min.js"></script>
+ <script src="assets/js/pages/plugins/lord-icon-2.1.0.js"></script>
+ <script src="assets/js/plugins.js"></script>
+
+ <!-- apexcharts -->
+ <script src="assets/libs/apexcharts/apexcharts.min.js"></script>
+
+ <script src="https://img.themesbrand.com/velzon/apexchart-js/stock-prices.js"></script>
+
+ <!-- linecharts init -->
+ <script src="assets/js/pages/apexcharts-line.init.js"></script>
+
+ <!-- App js -->
+ <script src="assets/js/app.js"></script>
+ <!-- Incluye la librería de ApexCharts -->
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Obtener datos de temperatura y humedad de PHP
+        var temperatureData = @json($temperatureData);
+        var humidityData = @json($humidityData);
+        var dates = @json($dates);
+    
+        var options1 = {
+            chart: {
+                type: 'line',
+                height: 350,
+                zoom: {
+                    enabled: false
+                }
+            },
+            series: [{
+                name: 'Temperatura',
+                data: temperatureData
+            }],
+            xaxis: {
+                categories: dates
+            },
+            colors: ["#34c38f"]
+        };
+    
+        var options2 = {
+            chart: {
+                type: 'line',
+                height: 350,
+                zoom: {
+                    enabled: false
+                }
+            },
+            series: [{
+                name: 'Humedad',
+                data: humidityData
+            }],
+            xaxis: {
+                categories: dates
+            },
+            colors: ["#556ee6"]
+        };
+    
+        var chart1 = new ApexCharts(document.querySelector("#line_chart_basic_1"), options1);
+        chart1.render();
+    
+        var chart2 = new ApexCharts(document.querySelector("#line_chart_basic_2"), options2);
+        chart2.render();
+    });
+</script>
+
+    
+
+@endsection()             
+@endsection()

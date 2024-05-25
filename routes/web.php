@@ -41,9 +41,9 @@ Route::post('/modelos', [SensorModelController::class, 'store'])->name('sensormo
 Route::put('/modelos/{id}', [SensorModelController::class, 'update'])->name('sensormodel.update');
 Route::delete('/modelos/{id}', [SensorModelController::class, 'destroy'])->name('sensormodel.destroy');
 
-Route::get('/greenhouse', [GreenhouseController::class, 'showTemperature'])->name('greenhouse');
 
-
+Route::get('/greenhouse', [GreenhouseController::class, 'showTemperature'])->name('showTemperature');
+Route::post('/greenhouse/update', [GreenhouseController::class, 'updateSetValues'])->name('updateSetValues');
 
 
 
