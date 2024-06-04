@@ -12,7 +12,8 @@ class UserController extends Controller
         // Verifica si hay un usuario autenticado antes de compartir la variable
         if (Auth::check()) {
             // Comparte la variable $user con todas las vistas
-            View::share('user', Auth::user());
+            $user=Auth::user();
+            View::share('user');
         } else {
             // Si no hay usuario autenticado, comparte null
             View::share('user', null);
