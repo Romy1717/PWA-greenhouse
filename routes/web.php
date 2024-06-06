@@ -13,6 +13,9 @@ use App\Http\Controllers\SubcategoriesController;
 use App\Http\Controllers\SensorModelController;
 use App\Http\Controllers\SubcategoriesBusinessController;
 use App\Http\Controllers\GreenhouseController;
+use App\Http\Controllers\ArduinoController;
+
+Route::get('/send-data-to-arduino', [ArduinoController::class, 'sendData']);
 
 Route::middleware(['auth'])->group(function() {
     Route::get('/business', [HomeController::class, 'business'])->name('business');

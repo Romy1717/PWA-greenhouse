@@ -27,12 +27,13 @@ class UserController extends Controller
         
         // Concatenamos los campos de apellido
         $lastname = $user->lastname_1 . ' ' . $user->lastname_2;
-        
+        $lastname1 = $user ->lastname_1;
+
         // Calculamos el porcentaje de completitud
         $porcentajeCompletado = $this->calcularPorcentajeCompletado($user);
         
         // Pasamos los datos a la vista
-        return view('profile', ['user' => $user, 'lastname' => $lastname, 'porcentajeCompletado' => $porcentajeCompletado]);
+        return view('profile', ['user' => $user, 'lastname' => $lastname,'lastname1' => $lastname1, 'porcentajeCompletado' => $porcentajeCompletado]);
     }
 
     private function calcularPorcentajeCompletado($user)

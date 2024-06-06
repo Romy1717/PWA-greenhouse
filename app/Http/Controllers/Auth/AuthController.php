@@ -16,7 +16,7 @@ use Illuminate\Validation\Rule;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
 
-class RegisteredUserController extends Controller
+class AythControllr extends Controller
 {
     public function create(): View
     {
